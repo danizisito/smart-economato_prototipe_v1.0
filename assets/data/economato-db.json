@@ -136,7 +136,7 @@
     {
       "id": 1,
       "nombre": "Tomate Raf",
-      "precio": 4.20,
+      "precio": 4.2,
       "precioUnitario": "kg",
       "stock": 85,
       "stockMinimo": 30,
@@ -172,7 +172,7 @@
     {
       "id": 3,
       "nombre": "Solomillo de Ternera",
-      "precio": 24.90,
+      "precio": 24.9,
       "precioUnitario": "kg",
       "stock": 35,
       "stockMinimo": 12,
@@ -208,7 +208,7 @@
     {
       "id": 5,
       "nombre": "Salmón Fresco",
-      "precio": 18.50,
+      "precio": 18.5,
       "precioUnitario": "kg",
       "stock": 28,
       "stockMinimo": 10,
@@ -226,7 +226,7 @@
     {
       "id": 6,
       "nombre": "Gambas Blancas",
-      "precio": 26.40,
+      "precio": 26.4,
       "precioUnitario": "kg",
       "stock": 18,
       "stockMinimo": 8,
@@ -262,7 +262,7 @@
     {
       "id": 8,
       "nombre": "Queso Manchego",
-      "precio": 16.80,
+      "precio": 16.8,
       "precioUnitario": "kg",
       "stock": 42,
       "stockMinimo": 15,
@@ -298,7 +298,7 @@
     {
       "id": 10,
       "nombre": "Pan de Barra",
-      "precio": 1.10,
+      "precio": 1.1,
       "precioUnitario": "unidad",
       "stock": 95,
       "stockMinimo": 35,
@@ -316,7 +316,7 @@
     {
       "id": 11,
       "nombre": "Aceite de Oliva Virgen Extra",
-      "precio": 8.90,
+      "precio": 8.9,
       "precioUnitario": "litro",
       "stock": 60,
       "stockMinimo": 20,
@@ -334,7 +334,7 @@
     {
       "id": 12,
       "nombre": "Vinagre de Jerez",
-      "precio": 6.40,
+      "precio": 6.4,
       "precioUnitario": "litro",
       "stock": 35,
       "stockMinimo": 12,
@@ -370,7 +370,7 @@
     {
       "id": 14,
       "nombre": "Azafrán en hebras",
-      "precio": 13.20,
+      "precio": 13.2,
       "precioUnitario": "1g",
       "stock": 25,
       "stockMinimo": 8,
@@ -388,7 +388,7 @@
     {
       "id": 15,
       "nombre": "Vino Tinto Reserva",
-      "precio": 14.80,
+      "precio": 14.8,
       "precioUnitario": "botella",
       "stock": 48,
       "stockMinimo": 18,
@@ -496,7 +496,7 @@
     {
       "id": 21,
       "nombre": "Lomo de Cerdo",
-      "precio": 11.90,
+      "precio": 11.9,
       "precioUnitario": "kg",
       "stock": 38,
       "stockMinimo": 15,
@@ -550,7 +550,7 @@
     {
       "id": 24,
       "nombre": "Pavo Pechuga",
-      "precio": 9.20,
+      "precio": 9.2,
       "precioUnitario": "kg",
       "stock": 32,
       "stockMinimo": 12,
@@ -568,7 +568,7 @@
     {
       "id": 25,
       "nombre": "Merluza Fresca",
-      "precio": 12.80,
+      "precio": 12.8,
       "precioUnitario": "kg",
       "stock": 26,
       "stockMinimo": 10,
@@ -586,7 +586,7 @@
     {
       "id": 26,
       "nombre": "Lubina Fresca",
-      "precio": 15.90,
+      "precio": 15.9,
       "precioUnitario": "kg",
       "stock": 20,
       "stockMinimo": 8,
@@ -604,7 +604,7 @@
     {
       "id": 27,
       "nombre": "Mejillones",
-      "precio": 8.50,
+      "precio": 8.5,
       "precioUnitario": "kg",
       "stock": 35,
       "stockMinimo": 12,
@@ -676,7 +676,7 @@
     {
       "id": 31,
       "nombre": "Queso Brie",
-      "precio": 12.40,
+      "precio": 12.4,
       "precioUnitario": "kg",
       "stock": 28,
       "stockMinimo": 10,
@@ -694,7 +694,7 @@
     {
       "id": 32,
       "nombre": "Queso Cabrales",
-      "precio": 19.80,
+      "precio": 19.8,
       "precioUnitario": "kg",
       "stock": 18,
       "stockMinimo": 6,
@@ -784,7 +784,7 @@
     {
       "id": 37,
       "nombre": "Vinagre de Módena",
-      "precio": 5.20,
+      "precio": 5.2,
       "precioUnitario": "500ml",
       "stock": 40,
       "stockMinimo": 12,
@@ -838,7 +838,7 @@
     {
       "id": 40,
       "nombre": "Vino Blanco",
-      "precio": 8.90,
+      "precio": 8.9,
       "precioUnitario": "botella",
       "stock": 52,
       "stockMinimo": 18,
@@ -856,7 +856,7 @@
     {
       "id": 41,
       "nombre": "Cerveza Rubia",
-      "precio": 1.20,
+      "precio": 1.2,
       "precioUnitario": "botella",
       "stock": 160,
       "stockMinimo": 50,
@@ -910,7 +910,7 @@
     {
       "id": 44,
       "nombre": "Peras Conferencia",
-      "precio": 2.10,
+      "precio": 2.1,
       "precioUnitario": "kg",
       "stock": 70,
       "stockMinimo": 25,
@@ -964,7 +964,7 @@
     {
       "id": 47,
       "nombre": "Filetes de Ternera",
-      "precio": 19.50,
+      "precio": 19.5,
       "precioUnitario": "kg",
       "stock": 30,
       "stockMinimo": 10,
@@ -1018,7 +1018,7 @@
     {
       "id": 50,
       "nombre": "Codornices",
-      "precio": 14.20,
+      "precio": 14.2,
       "precioUnitario": "kg",
       "stock": 16,
       "stockMinimo": 6,
