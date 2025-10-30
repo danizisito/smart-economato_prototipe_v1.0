@@ -9,9 +9,7 @@ import {
 import { renderizarTabla } from "../views/economato-ui.js";
 
 const inputBusqueda = document.querySelector("#busqueda");
-const btnBuscar = document.querySelector("#btnBuscar");
-const btnStock = document.querySelector("#btnStock");
-const btnMostrarTodos = document.querySelector("#btnMostrarTodos");
+
 const selectCategoria = document.querySelector("#categoriaSelect");
 const selectOrden = document.querySelector("#ordenSelect");
 
