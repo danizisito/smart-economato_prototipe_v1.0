@@ -7,7 +7,7 @@ import {
 } from "../utils/funciones.js";
 
 import { renderizarTabla } from "../views/economato-ui.js";
-lolaso
+
 const inputBusqueda = document.querySelector("#busqueda");
 const btnBuscar = document.querySelector("#btnBuscar");
 const btnStock = document.querySelector("#btnStock");
