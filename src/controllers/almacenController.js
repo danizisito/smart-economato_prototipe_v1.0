@@ -1,4 +1,6 @@
 import { productos } from "../services/apiServices.js";
+import { getProducto } from "../services/economatoService.js";
+
 import {
   filtrarPorCategoria,
   buscarProducto,
@@ -20,10 +22,12 @@ const eventMap = [
   { selector: "#categoriaSelect", event: "change", handler: onFiltrar },
 ];
 let productosMostrados;
-
-function inicializar() {
-  productosMostrados = [...productos];
+let select;
+async function inicializar() {
+  productosMostrados = await getProducto();
+  select = await getCategoria();
   renderizarTabla(productosMostrados);
+  renderizarCategorias(select)
   bindEvents(eventMap);
 }
 
