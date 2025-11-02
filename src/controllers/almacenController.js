@@ -1,6 +1,7 @@
 import { productos } from "../services/apiServices.js";
 import { getProducto } from "../services/economatoService.js";
 
+
 import {
   filtrarPorCategoria,
   buscarProducto,
@@ -8,7 +9,7 @@ import {
   comprobarStockMinimo,
 } from "../utils/funciones.js";
 
-import { renderizarTabla } from "../views/economato-ui.js";
+import { renderizarTabla, renderizarCategorias } from "../views/economato-ui.js";
 
 const inputBusqueda = document.querySelector("#busqueda");
 
