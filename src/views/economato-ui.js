@@ -30,3 +30,23 @@ export function renderizarTabla(datos) {
     .toFixed(2);
   resumen.textContent = `Productos mostrados: ${totalProductos} | Valor total del stock: ${valorTotal} €`;
 }
+
+export function renderizarCategorias(datos) {
+  const select = document.querySelector("#categoriaSelect");
+  select.innerHTML = "";
+  if(datos ===  0){
+    select.innerHTML =  `
+      <option value="">-- Categoría --</option>
+    `
+    return;
+  }
+    
+  datos.forEach((c) => { 
+    const selector = document.createElement("option");
+    selector.innerHTML = `
+    <option value="${c.nombre}">${c.nombre}</option>
+    `
+    select.appendChild(selector);
+  })
+  
+}
