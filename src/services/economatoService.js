@@ -5,7 +5,7 @@ export async function getProducto() {
   try{
     const response = await fetch(`${API_URL}/productos`);
     if (!response.ok) 
-      throw new Error("No se pudo obtener el Pokémon");
+      throw new Error("No se pudo obtener el Producto");
     return await response.json();
 
   }catch(error){
@@ -19,7 +19,7 @@ export async function getCategoria() {
   try{
     const response = await fetch(`${API_URL}/categorias`);
     if (!response.ok) 
-      throw new Error("No se pudo obtener el Pokémon");
+      throw new Error("No se pudo obtener la Categoria");
     return await response.json();
 
   }catch(error){
