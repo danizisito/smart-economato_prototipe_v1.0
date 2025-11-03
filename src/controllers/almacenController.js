@@ -1,4 +1,3 @@
-import { productos } from "../services/apiServices.js";
 import { getProducto } from "../services/economatoService.js";
 import { getCategoria } from "../services/economatoService.js";
 
@@ -22,15 +21,18 @@ const eventMap = [
   { selector: "#btnMostrarTodos", event: "click", handler: onShowAll },
   { selector: "#categoriaSelect", event: "change", handler: onFiltrar },
 ];
+let productos = [];
 let productosMostrados;
-let select;
-let productos;
+let categoriasMostradas;
+
 async function inicializar() {
+  // Obtener productos una sola vez
   productos = await getProducto();
-  productosMostrados = await getProducto();
+  productosMostrados = productos;
   renderizarTabla(productosMostrados);
-  select = await getCategoria();
-  renderizarCategorias(select);
+  // Obtener y renderizar categorías
+  categoriasMostradas = await getCategoria();
+  renderizarCategorias(categoriasMostradas);
   bindEvents(eventMap);
 }
 
