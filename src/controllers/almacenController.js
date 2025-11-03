@@ -1,6 +1,6 @@
 import { productos } from "../services/apiServices.js";
 import { getProducto } from "../services/economatoService.js";
-
+import { getCategoria } from "../services/economatoService.js";
 
 import {
   filtrarPorCategoria,
