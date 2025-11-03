@@ -24,11 +24,13 @@ const eventMap = [
 ];
 let productosMostrados;
 let select;
+let productos;
 async function inicializar() {
+  productos = await getProducto();
   productosMostrados = await getProducto();
-  select = await getCategoria();
   renderizarTabla(productosMostrados);
-  renderizarCategorias(select)
+  select = await getCategoria();
+  renderizarCategorias(select);
   bindEvents(eventMap);
 }
 
@@ -44,8 +46,8 @@ function onOrdenar() {
   renderizarTabla(productosMostrados);
 }
 
-function onShowAll() {
-  productosMostrados = [...productos];
+async function onShowAll() {
+  productosMostrados = await getProducto();
   inputBusqueda.value = "";
   selectCategoria.value = "";
   renderizarTabla(productosMostrados);
