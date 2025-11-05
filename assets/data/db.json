@@ -1,4 +1,15 @@
 {
+  "usuarios": [
+    {"id": 1,
+     "username": "tcasest",
+     "password": "secret",
+     "role": "admin",
+     "nombre": "Tanausú",
+     "apellidos": "Castrillo Estévez",
+     "email": "tcasest@gobiernodecanarias.org",
+     "telefono": "+34 91 123 45 67"     
+    }
+  ],
   "proveedores": [
     {
       "id": 1,
@@ -149,7 +160,15 @@
       "alergenos": [],
       "descripcion": "Tomate Raf de la Vega de Almería",
       "imagen": "tomate-raf.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 1,
+        "nombre": "Frutas Frescas"
+      },
+      "proveedor": {
+        "id": 2,
+        "nombre": "Frutas y Verduras Frescas SL"
+      }
     },
     {
       "id": 2,
@@ -167,7 +186,15 @@
       "alergenos": [],
       "descripcion": "Lechuga iceberg extra fresca",
       "imagen": "lechuga-iceberg.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 2,
+        "nombre": "Verduras y Hortalizas"
+      },
+      "proveedor": {
+        "id": 2,
+        "nombre": "Frutas y Verduras Frescas SL"
+      }
     },
     {
       "id": 3,
@@ -185,7 +212,15 @@
       "alergenos": [],
       "descripcion": "Solomillo de ternera gallega",
       "imagen": "solomillo-ternera.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 3,
+        "nombre": "Carnes Rojas"
+      },
+      "proveedor": {
+        "id": 3,
+        "nombre": "Carnicerías Selectas del Norte"
+      }
     },
     {
       "id": 4,
@@ -203,7 +238,15 @@
       "alergenos": [],
       "descripcion": "Pechuga de pollo sin piel",
       "imagen": "pechuga-pollo.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 4,
+        "nombre": "Aves y Caza"
+      },
+      "proveedor": {
+        "id": 3,
+        "nombre": "Carnicerías Selectas del Norte"
+      }
     },
     {
       "id": 5,
@@ -218,10 +261,20 @@
       "marca": "Atlántico Fresco",
       "codigoBarras": "8410001000053",
       "fechaCaducidad": "2024-03-11",
-      "alergenos": ["Pescado"],
+      "alergenos": [
+        "Pescado"
+      ],
       "descripcion": "Salmón del Atlántico noruego",
       "imagen": "salmon-fresco.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 5,
+        "nombre": "Pescados Frescos"
+      },
+      "proveedor": {
+        "id": 4,
+        "nombre": "Pescados y Mariscos Atlántico"
+      }
     },
     {
       "id": 6,
@@ -236,10 +289,20 @@
       "marca": "Mariscos Selectos",
       "codigoBarras": "8410001000060",
       "fechaCaducidad": "2024-03-10",
-      "alergenos": ["Crustáceos"],
+      "alergenos": [
+        "Crustáceos"
+      ],
       "descripcion": "Gambas blancas de Huelva",
       "imagen": "gambas-blancas.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 6,
+        "nombre": "Mariscos y Crustáceos"
+      },
+      "proveedor": {
+        "id": 4,
+        "nombre": "Pescados y Mariscos Atlántico"
+      }
     },
     {
       "id": 7,
@@ -254,10 +317,20 @@
       "marca": "Lácteos Naturales",
       "codigoBarras": "8410001000077",
       "fechaCaducidad": "2024-03-25",
-      "alergenos": ["Lácteos"],
+      "alergenos": [
+        "Lácteos"
+      ],
       "descripcion": "Leche entera pasteurizada",
       "imagen": "leche-entera.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 7,
+        "nombre": "Lácteos"
+      },
+      "proveedor": {
+        "id": 5,
+        "nombre": "Lácteos Valle Natural"
+      }
     },
     {
       "id": 8,
@@ -272,10 +345,20 @@
       "marca": "Quesos Tradicionales",
       "codigoBarras": "8410001000084",
       "fechaCaducidad": "2024-04-20",
-      "alergenos": ["Lácteos"],
+      "alergenos": [
+        "Lácteos"
+      ],
       "descripcion": "Queso manchego curado DOP",
       "imagen": "queso-manchego.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 8,
+        "nombre": "Quesos"
+      },
+      "proveedor": {
+        "id": 5,
+        "nombre": "Lácteos Valle Natural"
+      }
     },
     {
       "id": 9,
@@ -290,10 +373,20 @@
       "marca": "Granja Natural",
       "codigoBarras": "8410001000091",
       "fechaCaducidad": "2024-03-28",
-      "alergenos": ["Huevos"],
+      "alergenos": [
+        "Huevos"
+      ],
       "descripcion": "Huevos camperos tamaño L",
       "imagen": "huevos-camperos.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 9,
+        "nombre": "Huevos"
+      },
+      "proveedor": {
+        "id": 5,
+        "nombre": "Lácteos Valle Natural"
+      }
     },
     {
       "id": 10,
@@ -308,10 +401,20 @@
       "marca": "Panadería Artesana",
       "codigoBarras": "8410001000107",
       "fechaCaducidad": "2024-03-08",
-      "alergenos": ["Gluten"],
+      "alergenos": [
+        "Gluten"
+      ],
       "descripcion": "Pan de barra tradicional",
       "imagen": "pan-barra.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 10,
+        "nombre": "Panadería"
+      },
+      "proveedor": {
+        "id": 1,
+        "nombre": "Distribuciones Alimentarias Mediterráneo"
+      }
     },
     {
       "id": 11,
@@ -329,7 +432,15 @@
       "alergenos": [],
       "descripcion": "Aceite de oliva virgen extra arbequina",
       "imagen": "aceite-oliva.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 11,
+        "nombre": "Aceites y Vinagres"
+      },
+      "proveedor": {
+        "id": 6,
+        "nombre": "Distribuidora de Aceites Oro Verde"
+      }
     },
     {
       "id": 12,
@@ -344,10 +455,20 @@
       "marca": "Bodegas Tradicionales",
       "codigoBarras": "8410001000121",
       "fechaCaducidad": "2026-06-30",
-      "alergenos": ["Sulfitos"],
+      "alergenos": [
+        "Sulfitos"
+      ],
       "descripcion": "Vinagre de Jerez reserva",
       "imagen": "vinagre-jerez.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 11,
+        "nombre": "Aceites y Vinagres"
+      },
+      "proveedor": {
+        "id": 6,
+        "nombre": "Distribuidora de Aceites Oro Verde"
+      }
     },
     {
       "id": 13,
@@ -365,7 +486,15 @@
       "alergenos": [],
       "descripcion": "Pimentón de la Vera dulce DOP",
       "imagen": "pimenton-vera.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 12,
+        "nombre": "Especias y Condimentos"
+      },
+      "proveedor": {
+        "id": 7,
+        "nombre": "Especias y Condimentos del Mundo"
+      }
     },
     {
       "id": 14,
@@ -383,7 +512,15 @@
       "alergenos": [],
       "descripcion": "Azafrán en hebras calidad superior",
       "imagen": "azafran-hebras.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 12,
+        "nombre": "Especias y Condimentos"
+      },
+      "proveedor": {
+        "id": 7,
+        "nombre": "Especias y Condimentos del Mundo"
+      }
     },
     {
       "id": 15,
@@ -398,10 +535,20 @@
       "marca": "Bodegas Riojanas",
       "codigoBarras": "8410001000152",
       "fechaCaducidad": "2027-12-31",
-      "alergenos": ["Sulfitos"],
+      "alergenos": [
+        "Sulfitos"
+      ],
       "descripcion": "Vino tinto reserva Rioja DOCa",
       "imagen": "vino-tinto.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 13,
+        "nombre": "Bebidas"
+      },
+      "proveedor": {
+        "id": 8,
+        "nombre": "Bebidas y Vinos Peninsulares"
+      }
     },
     {
       "id": 16,
@@ -419,7 +566,15 @@
       "alergenos": [],
       "descripcion": "Agua mineral natural 1.5L",
       "imagen": "agua-mineral.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 13,
+        "nombre": "Bebidas"
+      },
+      "proveedor": {
+        "id": 8,
+        "nombre": "Bebidas y Vinos Peninsulares"
+      }
     },
     {
       "id": 17,
@@ -437,7 +592,15 @@
       "alergenos": [],
       "descripcion": "Plátanos de Canarias IGP",
       "imagen": "platanos-canarias.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 1,
+        "nombre": "Frutas Frescas"
+      },
+      "proveedor": {
+        "id": 2,
+        "nombre": "Frutas y Verduras Frescas SL"
+      }
     },
     {
       "id": 18,
@@ -455,7 +618,15 @@
       "alergenos": [],
       "descripcion": "Naranjas de mesa Valencia late",
       "imagen": "naranjas-valencia.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 1,
+        "nombre": "Frutas Frescas"
+      },
+      "proveedor": {
+        "id": 2,
+        "nombre": "Frutas y Verduras Frescas SL"
+      }
     },
     {
       "id": 19,
@@ -473,7 +644,15 @@
       "alergenos": [],
       "descripcion": "Zanahorias frescas lavadas",
       "imagen": "zanahorias.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 2,
+        "nombre": "Verduras y Hortalizas"
+      },
+      "proveedor": {
+        "id": 2,
+        "nombre": "Frutas y Verduras Frescas SL"
+      }
     },
     {
       "id": 20,
@@ -491,7 +670,15 @@
       "alergenos": [],
       "descripcion": "Cebollas amarillas españolas",
       "imagen": "cebollas.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 2,
+        "nombre": "Verduras y Hortalizas"
+      },
+      "proveedor": {
+        "id": 2,
+        "nombre": "Frutas y Verduras Frescas SL"
+      }
     },
     {
       "id": 21,
@@ -509,7 +696,15 @@
       "alergenos": [],
       "descripcion": "Lomo de cerdo ibérico",
       "imagen": "lomo-cerdo.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 3,
+        "nombre": "Carnes Rojas"
+      },
+      "proveedor": {
+        "id": 3,
+        "nombre": "Carnicerías Selectas del Norte"
+      }
     },
     {
       "id": 22,
@@ -527,7 +722,15 @@
       "alergenos": [],
       "descripcion": "Chuletas de cordero lechal",
       "imagen": "chuletas-cordero.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 3,
+        "nombre": "Carnes Rojas"
+      },
+      "proveedor": {
+        "id": 3,
+        "nombre": "Carnicerías Selectas del Norte"
+      }
     },
     {
       "id": 23,
@@ -545,7 +748,15 @@
       "alergenos": [],
       "descripcion": "Muslos de pollo con piel",
       "imagen": "muslos-pollo.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 4,
+        "nombre": "Aves y Caza"
+      },
+      "proveedor": {
+        "id": 3,
+        "nombre": "Carnicerías Selectas del Norte"
+      }
     },
     {
       "id": 24,
@@ -563,7 +774,15 @@
       "alergenos": [],
       "descripcion": "Pechuga de pavo fresca",
       "imagen": "pechuga-pavo.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 4,
+        "nombre": "Aves y Caza"
+      },
+      "proveedor": {
+        "id": 3,
+        "nombre": "Carnicerías Selectas del Norte"
+      }
     },
     {
       "id": 25,
@@ -578,17 +797,27 @@
       "marca": "Pescados Frescos",
       "codigoBarras": "8410001000251",
       "fechaCaducidad": "2024-03-10",
-      "alergenos": ["Pescado"],
+      "alergenos": [
+        "Pescado"
+      ],
       "descripcion": "Merluza del Cantábrico",
       "imagen": "merluza-fresca.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 5,
+        "nombre": "Pescados Frescos"
+      },
+      "proveedor": {
+        "id": 4,
+        "nombre": "Pescados y Mariscos Atlántico"
+      }
     },
     {
       "id": 26,
       "nombre": "Lubina Fresca",
       "precio": 15.9,
       "precioUnitario": "kg",
-      "stock": 20,
+      "stock": 7,
       "stockMinimo": 8,
       "categoriaId": 5,
       "proveedorId": 4,
@@ -596,17 +825,27 @@
       "marca": "Pescados Mediterráneos",
       "codigoBarras": "8410001000268",
       "fechaCaducidad": "2024-03-09",
-      "alergenos": ["Pescado"],
+      "alergenos": [
+        "Pescado"
+      ],
       "descripcion": "Lubina de acuicultura",
       "imagen": "lubina-fresca.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 5,
+        "nombre": "Pescados Frescos"
+      },
+      "proveedor": {
+        "id": 4,
+        "nombre": "Pescados y Mariscos Atlántico"
+      }
     },
     {
       "id": 27,
       "nombre": "Mejillones",
       "precio": 8.5,
       "precioUnitario": "kg",
-      "stock": 35,
+      "stock": 11,
       "stockMinimo": 12,
       "categoriaId": 6,
       "proveedorId": 4,
@@ -614,10 +853,20 @@
       "marca": "Mariscos Gallegos",
       "codigoBarras": "8410001000275",
       "fechaCaducidad": "2024-03-12",
-      "alergenos": ["Moluscos"],
+      "alergenos": [
+        "Moluscos"
+      ],
       "descripcion": "Mejillones de roca gallegos",
       "imagen": "mejillones.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 6,
+        "nombre": "Mariscos y Crustáceos"
+      },
+      "proveedor": {
+        "id": 4,
+        "nombre": "Pescados y Mariscos Atlántico"
+      }
     },
     {
       "id": 28,
@@ -632,10 +881,20 @@
       "marca": "Mariscos Selectos",
       "codigoBarras": "8410001000282",
       "fechaCaducidad": "2024-03-08",
-      "alergenos": ["Moluscos"],
+      "alergenos": [
+        "Moluscos"
+      ],
       "descripcion": "Almejas finas de Huelva",
       "imagen": "almejas-finas.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 6,
+        "nombre": "Mariscos y Crustáceos"
+      },
+      "proveedor": {
+        "id": 4,
+        "nombre": "Pescados y Mariscos Atlántico"
+      }
     },
     {
       "id": 29,
@@ -650,10 +909,20 @@
       "marca": "Lácteos Naturales",
       "codigoBarras": "8410001000299",
       "fechaCaducidad": "2024-03-22",
-      "alergenos": ["Lácteos"],
+      "alergenos": [
+        "Lácteos"
+      ],
       "descripcion": "Yogur natural sin azúcar",
       "imagen": "yogur-natural.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 7,
+        "nombre": "Lácteos"
+      },
+      "proveedor": {
+        "id": 5,
+        "nombre": "Lácteos Valle Natural"
+      }
     },
     {
       "id": 30,
@@ -668,10 +937,20 @@
       "marca": "Lácteos Puros",
       "codigoBarras": "8410001000305",
       "fechaCaducidad": "2024-04-10",
-      "alergenos": ["Lácteos"],
+      "alergenos": [
+        "Lácteos"
+      ],
       "descripcion": "Mantequilla con sal",
       "imagen": "mantequilla.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 7,
+        "nombre": "Lácteos"
+      },
+      "proveedor": {
+        "id": 5,
+        "nombre": "Lácteos Valle Natural"
+      }
     },
     {
       "id": 31,
@@ -686,10 +965,20 @@
       "marca": "Quesos Europeos",
       "codigoBarras": "8410001000312",
       "fechaCaducidad": "2024-04-05",
-      "alergenos": ["Lácteos"],
+      "alergenos": [
+        "Lácteos"
+      ],
       "descripcion": "Queso brie francés",
       "imagen": "queso-brie.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 8,
+        "nombre": "Quesos"
+      },
+      "proveedor": {
+        "id": 5,
+        "nombre": "Lácteos Valle Natural"
+      }
     },
     {
       "id": 32,
@@ -704,10 +993,20 @@
       "marca": "Quesos Tradicionales",
       "codigoBarras": "8410001000329",
       "fechaCaducidad": "2024-04-15",
-      "alergenos": ["Lácteos"],
+      "alergenos": [
+        "Lácteos"
+      ],
       "descripcion": "Queso cabrales asturiano DOP",
       "imagen": "queso-cabrales.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 8,
+        "nombre": "Quesos"
+      },
+      "proveedor": {
+        "id": 5,
+        "nombre": "Lácteos Valle Natural"
+      }
     },
     {
       "id": 33,
@@ -722,10 +1021,20 @@
       "marca": "Granja Ecológica",
       "codigoBarras": "8410001000336",
       "fechaCaducidad": "2024-03-30",
-      "alergenos": ["Huevos"],
+      "alergenos": [
+        "Huevos"
+      ],
       "descripcion": "Huevos ecológicos camperos",
       "imagen": "huevos-ecologicos.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 9,
+        "nombre": "Huevos"
+      },
+      "proveedor": {
+        "id": 5,
+        "nombre": "Lácteos Valle Natural"
+      }
     },
     {
       "id": 34,
@@ -740,10 +1049,20 @@
       "marca": "Panadería Salud",
       "codigoBarras": "8410001000343",
       "fechaCaducidad": "2024-03-09",
-      "alergenos": ["Gluten"],
+      "alergenos": [
+        "Gluten"
+      ],
       "descripcion": "Pan integral de centeno",
       "imagen": "pan-integral.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 10,
+        "nombre": "Panadería"
+      },
+      "proveedor": {
+        "id": 1,
+        "nombre": "Distribuciones Alimentarias Mediterráneo"
+      }
     },
     {
       "id": 35,
@@ -758,10 +1077,20 @@
       "marca": "Panadería Francesa",
       "codigoBarras": "8410001000350",
       "fechaCaducidad": "2024-03-08",
-      "alergenos": ["Gluten"],
+      "alergenos": [
+        "Gluten"
+      ],
       "descripcion": "Baguette tradicional francesa",
       "imagen": "baguette.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 10,
+        "nombre": "Panadería"
+      },
+      "proveedor": {
+        "id": 1,
+        "nombre": "Distribuciones Alimentarias Mediterráneo"
+      }
     },
     {
       "id": 36,
@@ -779,7 +1108,15 @@
       "alergenos": [],
       "descripcion": "Aceite de oliva virgen andaluz",
       "imagen": "aceite-virgen.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 11,
+        "nombre": "Aceites y Vinagres"
+      },
+      "proveedor": {
+        "id": 6,
+        "nombre": "Distribuidora de Aceites Oro Verde"
+      }
     },
     {
       "id": 37,
@@ -794,10 +1131,20 @@
       "marca": "Vinagres Italianos",
       "codigoBarras": "8410001000374",
       "fechaCaducidad": "2026-03-15",
-      "alergenos": ["Sulfitos"],
+      "alergenos": [
+        "Sulfitos"
+      ],
       "descripcion": "Vinagre balsámico de Módena IGP",
       "imagen": "vinagre-modena.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 11,
+        "nombre": "Aceites y Vinagres"
+      },
+      "proveedor": {
+        "id": 6,
+        "nombre": "Distribuidora de Aceites Oro Verde"
+      }
     },
     {
       "id": 38,
@@ -815,7 +1162,15 @@
       "alergenos": [],
       "descripcion": "Orégano seco molido",
       "imagen": "oregano.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 12,
+        "nombre": "Especias y Condimentos"
+      },
+      "proveedor": {
+        "id": 7,
+        "nombre": "Especias y Condimentos del Mundo"
+      }
     },
     {
       "id": 39,
@@ -833,7 +1188,15 @@
       "alergenos": [],
       "descripcion": "Pimienta negra en grano",
       "imagen": "pimienta-negra.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 12,
+        "nombre": "Especias y Condimentos"
+      },
+      "proveedor": {
+        "id": 7,
+        "nombre": "Especias y Condimentos del Mundo"
+      }
     },
     {
       "id": 40,
@@ -848,10 +1211,20 @@
       "marca": "Bodegas Rueda",
       "codigoBarras": "8410001000404",
       "fechaCaducidad": "2026-08-15",
-      "alergenos": ["Sulfitos"],
+      "alergenos": [
+        "Sulfitos"
+      ],
       "descripcion": "Vino blanco verdejo DOP Rueda",
       "imagen": "vino-blanco.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 13,
+        "nombre": "Bebidas"
+      },
+      "proveedor": {
+        "id": 8,
+        "nombre": "Bebidas y Vinos Peninsulares"
+      }
     },
     {
       "id": 41,
@@ -866,10 +1239,20 @@
       "marca": "Cervezas Artesanas",
       "codigoBarras": "8410001000411",
       "fechaCaducidad": "2024-09-30",
-      "alergenos": ["Gluten"],
+      "alergenos": [
+        "Gluten"
+      ],
       "descripcion": "Cerveza rubia artesanal",
       "imagen": "cerveza-rubia.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 13,
+        "nombre": "Bebidas"
+      },
+      "proveedor": {
+        "id": 8,
+        "nombre": "Bebidas y Vinos Peninsulares"
+      }
     },
     {
       "id": 42,
@@ -887,7 +1270,15 @@
       "alergenos": [],
       "descripcion": "Refresco de cola 33cl",
       "imagen": "refresco-cola.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 13,
+        "nombre": "Bebidas"
+      },
+      "proveedor": {
+        "id": 8,
+        "nombre": "Bebidas y Vinos Peninsulares"
+      }
     },
     {
       "id": 43,
@@ -905,7 +1296,15 @@
       "alergenos": [],
       "descripcion": "Manzanas golden delicious",
       "imagen": "manzanas-golden.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 1,
+        "nombre": "Frutas Frescas"
+      },
+      "proveedor": {
+        "id": 2,
+        "nombre": "Frutas y Verduras Frescas SL"
+      }
     },
     {
       "id": 44,
@@ -923,7 +1322,15 @@
       "alergenos": [],
       "descripcion": "Peras conferencia extra",
       "imagen": "peras-conferencia.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 1,
+        "nombre": "Frutas Frescas"
+      },
+      "proveedor": {
+        "id": 2,
+        "nombre": "Frutas y Verduras Frescas SL"
+      }
     },
     {
       "id": 45,
@@ -941,7 +1348,15 @@
       "alergenos": [],
       "descripcion": "Pimientos rojos asar",
       "imagen": "pimientos-rojos.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 2,
+        "nombre": "Verduras y Hortalizas"
+      },
+      "proveedor": {
+        "id": 2,
+        "nombre": "Frutas y Verduras Frescas SL"
+      }
     },
     {
       "id": 46,
@@ -959,7 +1374,15 @@
       "alergenos": [],
       "descripcion": "Patatas gallegas extra",
       "imagen": "patatas.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 2,
+        "nombre": "Verduras y Hortalizas"
+      },
+      "proveedor": {
+        "id": 2,
+        "nombre": "Frutas y Verduras Frescas SL"
+      }
     },
     {
       "id": 47,
@@ -977,7 +1400,15 @@
       "alergenos": [],
       "descripcion": "Filetes de ternera añojo",
       "imagen": "filetes-ternera.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 3,
+        "nombre": "Carnes Rojas"
+      },
+      "proveedor": {
+        "id": 3,
+        "nombre": "Carnicerías Selectas del Norte"
+      }
     },
     {
       "id": 48,
@@ -995,7 +1426,15 @@
       "alergenos": [],
       "descripcion": "Costillas de cerdo ibérico",
       "imagen": "costillas-cerdo.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 3,
+        "nombre": "Carnes Rojas"
+      },
+      "proveedor": {
+        "id": 3,
+        "nombre": "Carnicerías Selectas del Norte"
+      }
     },
     {
       "id": 49,
@@ -1013,7 +1452,15 @@
       "alergenos": [],
       "descripcion": "Alitas de pollo para barbacoa",
       "imagen": "alitas-pollo.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 4,
+        "nombre": "Aves y Caza"
+      },
+      "proveedor": {
+        "id": 3,
+        "nombre": "Carnicerías Selectas del Norte"
+      }
     },
     {
       "id": 50,
@@ -1031,7 +1478,15 @@
       "alergenos": [],
       "descripcion": "Codornices limpias listas para cocinar",
       "imagen": "codornices.jpg",
-      "activo": true
+      "activo": true,
+      "categoria": {
+        "id": 4,
+        "nombre": "Aves y Caza"
+      },
+      "proveedor": {
+        "id": 3,
+        "nombre": "Carnicerías Selectas del Norte"
+      }
     }
   ]
 }
