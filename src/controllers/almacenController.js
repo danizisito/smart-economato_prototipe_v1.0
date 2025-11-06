@@ -21,6 +21,7 @@ const eventMap = [
   { selector: "#btnMostrarTodos", event: "click", handler: onShowAll },
   { selector: "#categoriaSelect", event: "change", handler: onFiltrar },
 ];
+
 let productos = [];
 let productosMostrados;
 let categoriasMostradas;
@@ -59,7 +60,7 @@ async function onShowAll() {
 }
 function onFiltrar() {
   const cat = selectCategoria.value;
-  productosMostrados = filtrarPorCategoria(productos, cat);
+  productosMostrados = cat ? filtrarPorCategoria(productos, cat) : [...productos];
   renderizarTabla(productosMostrados);
 }
 

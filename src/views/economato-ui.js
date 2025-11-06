@@ -31,7 +31,7 @@ export function renderizarTabla(datos) {
   resumen.textContent = `Productos mostrados: ${totalProductos} | Valor total del stock: ${valorTotal} €`;
 }
 
-export function renderizarCategorias(datos) {
+/*export function renderizarCategorias(datos) {
   const select = document.querySelector("#categoriaSelect");
   select.innerHTML = "";
   if(datos ===  0){
@@ -49,16 +49,16 @@ export function renderizarCategorias(datos) {
     select.appendChild(selector);
   })
   
-}
+}*/
 
 
-/*export function renderizarCategorias(categorias) {
+export function renderizarCategorias(categorias) {
   const select = document.querySelector("#categoriaSelect");
   //Podemos limpiar opciones previas
   select.textContent = '';
 
   //Vamos a crear la opción por defecto
-  const opcionDefault = createElement("option");
+  const opcionDefault = document.createElement("option");
   opcionDefault.value = ''
   opcionDefault.textContent = "--- Categoria ---";
   select.appendChild(opcionDefault);
@@ -72,4 +72,4 @@ export function renderizarCategorias(datos) {
   })
   
 }
-*/
+
