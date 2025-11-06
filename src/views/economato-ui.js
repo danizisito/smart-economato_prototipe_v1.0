@@ -50,3 +50,26 @@ export function renderizarCategorias(datos) {
   })
   
 }
+
+
+/*export function renderizarCategorias(categorias) {
+  const select = document.querySelector("#categoriaSelect");
+  //Podemos limpiar opciones previas
+  select.textContent = '';
+
+  //Vamos a crear la opción por defecto
+  const opcionDefault = createElement("option");
+  opcionDefault.value = ''
+  opcionDefault.textContent = "--- Categoria ---";
+  select.appendChild(opcionDefault);
+    
+  //Recorrer categorias y crear o modificar el DOM
+  categorias.forEach((c) => {
+    const option = document.createElement('option');
+    option.value = c.nombre;
+    option.textContent = c.nombre;
+    select.appendChild(option);
+  })
+  
+}
+*/

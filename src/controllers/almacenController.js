@@ -42,6 +42,9 @@ function onBuscar() {
   renderizarTabla(productosMostrados);
 }
 
+
+
+
 function onOrdenar() {
   const orden = selectOrden.value;
   productosMostrados = ordenarPorPrecio(productos, orden);
