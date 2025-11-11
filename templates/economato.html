@@ -1,51 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smart Economato - Prototipo</title>
-    <link rel="stylesheet" href="../assets/css/estilo.css" />
-    <script type="module"src="../src/controllers/almacenController.js"
-    ></script>
-  </head>
-  <body>
-    <h1>Smart Economato - Prototipo</h1>
 
-    <div class="controles">
-      <input type="text" id="busqueda" placeholder="Buscar producto..." />
-      <button id="btnBuscar">Buscar</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Economato - Prototipo</title>
+  <link rel="stylesheet" href="../assets/css/estilo.css" />
+  <script type="module" src="../src/controllers/almacenController.js"></script>
+</head>
 
-      <select id="categoriaSelect">
-      </select>
+<body>
+  <h1>Smart Economato - Prototipo</h1>
 
-      <select id="ordenSelect">
-        <option value="asc">Precio ascendente</option>
-        <option value="desc">Precio descendente</option>
-      </select>
+  <div class="controles">
+    <input type="text" id="busqueda" placeholder="Buscar producto..." />
+    <button id="btnBuscar">Buscar</button>
 
-      <button id="btnStock">Comprobar stock</button>
-      <button id="btnMostrarTodos">Mostrar todos</button>
-    </div>
+    <select id="categoriaSelect">
+    </select>
 
-    <table id="tablaProductos">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Categoría</th>
-          <th>Precio (€)</th>
-          <th>Stock</th>
-          <th>Stock Mínimo</th>
-          <th>Proveedor</th>
-          <th>Isla</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-      <tfoot>
-        <tr>
-          <td colspan="8" id="resumen"></td>
-        </tr>
-      </tfoot>
-    </table>
-  </body>
+    <select id="ordenSelect">
+      <option value="asc">Precio ascendente</option>
+      <option value="desc">Precio descendente</option>
+    </select>
+
+    <button id="btnStock">Comprobar stock</button>
+    <button id="btnMostrarTodos">Mostrar todos</button>
+  </div>
+
+  <table id="tablaProductos">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Categoría</th>
+        <th>Precio (€)</th>
+        <th>Stock</th>
+        <th>Stock Mínimo</th>
+        <th>Proveedor</th>
+        <th>Isla</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+    <tfoot>
+      <tr>
+        <td colspan="8" id="resumen"></td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+
 </html>

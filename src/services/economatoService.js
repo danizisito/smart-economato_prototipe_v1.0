@@ -2,13 +2,13 @@
 const API_URL = 'http://localhost:3000'
 
 export async function getProducto() {
-  try{
+  try {
     const response = await fetch(`${API_URL}/productos`);
-    if (!response.ok) 
+    if (!response.ok)
       throw new Error("No se pudo obtener el Producto");
     return await response.json();
 
-  }catch(error){
+  } catch (error) {
     console.error(error)
     return []
 
@@ -16,15 +16,16 @@ export async function getProducto() {
 }
 
 export async function getCategoria() {
-  try{
+  try {
     const response = await fetch(`${API_URL}/categorias`);
-    if (!response.ok) 
+    if (!response.ok)
       throw new Error("No se pudo obtener la Categoria");
     return await response.json();
 
-  }catch(error){
+  } catch (error) {
     console.error(error)
     return []
 
   }
 }
+
