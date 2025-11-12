@@ -1,0 +1,254 @@
+    :root{
+        --primary-bg-color: #f2f2f2;
+        --primary-color: rgb(232, 71, 53);
+        --secondary-color: grey;
+        --primary-color-hover: rgb(232, 71, 53);
+    }
+
+
+    .container {
+        background-color: #f2f2f2; 
+        min-height: 100vh;
+        display: grid;
+        grid-template-areas:
+            "head"
+            "navBar"
+            "contenido"
+            "footer";
+        grid-template-rows: 100px 75px 1fr 100px;
+    }
+
+    /* Header */
+    .container header {
+        grid-area: head;
+        display: flex;               
+        align-items: center;         
+        justify-content: flex-start; 
+        background-color: var(--primary-color);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: white;
+        padding: 15px;
+        gap: 15px;                   
+    }
+    /*Logo del header*/
+    header .logo {
+        height: 60px;
+        width: auto;
+    }
+
+    /* Título */
+    .tituloPrin{
+        color: var(--primary-bg-color) ;
+        margin-bottom: 30px;
+        font-size: 25px;
+        background-color: var(--primary-color);
+    }
+
+    /* Barra de navegación */
+    .container .navBar {
+        grid-area: navBar;
+        background-color: var(--secondary-color);
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        place-content: center;
+        padding: 10px 0px;
+    }
+    /* Enlaces de navegación */
+    .navBar a { 
+        color: white; 
+        text-decoration: none; 
+        margin: 0 45px; 
+        font-weight:12px; 
+        transition: color 0.3s; 
+    } 
+    .navBar a:hover { 
+        color: var(--primary-color); 
+    }
+    
+    /* Contenido principal  */
+    .container .contenido {
+        grid-area: contenido;
+        background-color: var(--primary-bg-color);
+        display: flex;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 0;
+        
+    }
+    /*imagen*/
+    .contenido {
+        background-image: url("../img/almacen.jpeg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white; 
+    }
+
+    /* Enlaces de navegación */
+    .navBar a {
+        color: white;
+        text-decoration: none;
+        margin: 0 45px;
+        font-weight:12px;
+        transition: color 0.3s;
+    }
+
+    .navBar a:hover {
+        color: var(--primary-color);
+    }
+
+    /* h1 contenido */
+    .contenidoTit{
+        color: black;
+        margin-bottom: 30px;
+        font-size: 25px;
+    }
+
+    /* Footer */
+    .container footer {
+        grid-area: footer;
+        background-color: var(--secondary-color);
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        place-content: center;
+        border: 2px solid var(--secondary-color);
+        padding: 10px;
+        color: white;
+    }
+
+    /* =================== LOGIN =================== */
+
+    .body-login {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: var(--primary-bg-color); 
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+
+    .login-container {
+        background-color: white;
+        padding: 35px 45px;
+        border-radius: 12px;
+        width: 400px;
+        text-align: center;
+        color: black;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        box-shadow: 0 0 15px rgba(197, 94, 26, 0.3);
+        border: 2px solid rgba(232, 71, 53, 0.5); 
+    }
+
+    /* Logo del login */
+    .login-logo {
+        display: block;
+        margin: 0 auto 20px auto;
+        height: 50px; /* Ajusta según necesites */
+        width: auto;
+    }
+
+    /* Título del login */
+    .login-titulo {
+        color: rgb(232, 71, 53);
+        margin-bottom: 30px;
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    /* Etiquetas */
+    .login-label {
+        display: block;
+        text-align: left;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        color: var(--secondary-color);
+        font-weight: bold;
+    }
+
+    /* Campos de entrada */
+    .login-input {
+        width: 350px;
+        padding: 10px;
+        border: 1px solid grey;
+        border-radius: 5px;
+        background-color: var(--primary-bg-color);
+        color: black;
+    }
+
+
+    /* Botón del login */
+    .login-button {
+        margin-top: 20px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 12px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        width: 370px;
+        transition: background-color 0.3s;
+        
+    }
+
+    .login-button:hover {
+        background-color: var(--secondary-color);
+        color: white;
+    }
+
+
+
+
+    /* =================== MEDIA QUERIES =================== */
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+        .login-container {
+            width: 350px;
+            padding: 30px 70px;
+        }
+        .login-logo {
+            height: 70px;
+        }
+    }
+
+/* Móvil */
+
+@media (max-width: 767px) {
+    .navBar {
+        display: flex;
+        flex-wrap: wrap;          
+        justify-content: center;   
+        gap: 10px;                 
+        padding: 15px 10px;
+        height: auto;              
+    }
+
+    .navBar a {
+        margin: 5px 10px;          
+        font-size: 14px;           
+        display: inline-block;
+    }
+
+    .container header {
+        flex-direction: column;    
+        justify-content: center;
+        text-align: center;
+    }
+
+    .tituloPrin {
+        margin: 0;
+        font-size: 20px;
+    }
+
+    header .logo {
+        height: 50px;
+    }
+}
+    
+
+
+
