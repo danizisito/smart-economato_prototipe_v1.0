@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.addEventListener("submit", async (event) => {
 
-        event.preventDefault();
+        event.preventDefault(); 
         const usuario = document.getElementById("username").value;
         const contraseña = document.getElementById("password").value;
 
