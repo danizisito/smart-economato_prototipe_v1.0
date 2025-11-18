@@ -1,0 +1,15 @@
+.campo {
+    margin-bottom: 12px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 6px;
+    box-sizing: border-box;
+}
