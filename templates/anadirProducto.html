@@ -2,104 +2,97 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Economato - Prototipo</title>
-    <link rel="stylesheet" href="../assets/css/estilo.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Economato - Formulario Completo</title>
+    <link rel="stylesheet" href="../assets/css/anadirProductos.css">
 </head>
 
 <body>
-    <h1>Smart Economato - Añadir Producto</h1>
+    <h1>Smart Economato - Formulario Completo</h1>
+    <div class="form-container">
+        <form id="formProducto">
+            <div class="form-group">
+                <label for="nombreProducto">Nombre:</label>
+                <input type="text" id="nombreProducto" name="nombreProducto" required>
+            </div>
 
-    <table>
-        <tr>
-            <td><label>Nombre:</label></td>
-            <td><input type="text"></td>
-        </tr>
+            <div class="form-group">
+                <label for="precioProducto">Precio (€):</label>
+                <input type="number" id="precioProducto" name="precioProducto" step="0.01" required>
+            </div>
 
-        <tr>
-            <td><label>Precio:</label></td>
-            <td><input type="number"></td>
-        </tr>
+            <div class="form-group">
+                <label for="precioUnitario">Precio Unitario:</label>
+                <input type="number" id="precioUnitario" name="precioUnitario" step="0.01">
+            </div>
 
-        <tr>
-            <td><label>Precio Unitario:</label></td>
-            <td><input type="number"></td>
-        </tr>
+            <div class="form-group">
+                <label for="stockProducto">Stock:</label>
+                <input type="number" id="stockProducto" name="stockProducto" required>
+            </div>
 
-        <tr>
-            <td><label>Stock:</label></td>
-            <td><input type="number"></td>
-        </tr>
+            <div class="form-group">
+                <label for="stockMinimo">Stock Mínimo:</label>
+                <input type="number" id="stockMinimo" name="stockMinimo" required>
+            </div>
 
-        <tr>
-            <td><label>Stock Mínimo:</label></td>
-            <td><input type="number"></td>
-        </tr>
+            <div class="form-group">
+                <label for="categoriaId">Categoría Id:</label>
+                <input type="text" id="categoriaId" name="categoriaId">
+            </div>
 
-        <tr>
-            <td><label>Categoría Id:</label></td>
-            <td><input type="text"></td>
-        </tr>
+            <div class="form-group">
+                <label for="proveedorId">Proveedor Id:</label>
+                <input type="text" id="proveedorId" name="proveedorId">
+            </div>
 
-        <tr>
-            <td><label>Proveedor Id:</label></td>
-            <td><input type="text"></td>
-        </tr>
+            <div class="form-group">
+                <label for="unidadMedida">Unidad de Medida:</label>
+                <input type="text" id="unidadMedida" name="unidadMedida">
+            </div>
 
-        <tr>
-            <td><label>Unidad Medida:</label></td>
-            <td><input type="text"></td>
-        </tr>
+            <div class="form-group">
+                <label for="marcaProducto">Marca:</label>
+                <input type="text" id="marcaProducto" name="marcaProducto">
+            </div>
 
-        <tr>
-            <td><label>Marca:</label></td>
-            <td><input type="text"></td>
-        </tr>
+            <div class="form-group">
+                <label for="codigoBarras">Código de Barras:</label>
+                <input type="text" id="codigoBarras" name="codigoBarras">
+            </div>
 
-        <tr>
-            <td><label>Código Barras:</label></td>
-            <td><input type="text"></td>
-        </tr>
+            <div class="form-group">
+                <label for="fechaCaducidad">Fecha de Caducidad:</label>
+                <input type="date" id="fechaCaducidad" name="fechaCaducidad">
+            </div>
 
-        <tr>
-            <td><label>Fecha Caducidad:</label></td>
-            <td><input type="date"></td>
-        </tr>
+            <div class="form-group">
+                <label for="alergenos">Alérgenos:</label>
+                <input type="text" id="alergenos" name="alergenos">
+            </div>
 
-        <tr>
-            <td><label>Alérgenos:</label></td>
-            <td><input type="text"></td>
-        </tr>
+            <div class="form-group full-width">
+                <label for="descripcionProducto">Descripción:</label>
+                <textarea id="descripcionProducto" name="descripcionProducto" rows="3"></textarea>
+            </div>
 
-        <tr>
-            <td><label>Descripción:</label></td>
-            <td><textarea></textarea></td>
-        </tr>
+            <div class="form-group">
+                <label for="proveedorProducto">Proveedor:</label>
+                <input type="text" id="proveedorProducto" name="proveedorProducto">
+            </div>
 
-        <tr>
-            <td><label>Precio (€):</label></td>
-            <td><input type="number"></td>
-        </tr>
+            <div class="form-group">
+                <label for="islaProducto">Isla:</label>
+                <input type="text" id="islaProducto" name="islaProducto">
+            </div>
 
-        <tr>
-            <td><label>Proveedor:</label></td>
-            <td><input type="text"></td>
-        </tr>
-
-        <tr>
-            <td><label>Isla:</label></td>
-            <td><input type="text"></td>
-        </tr>
-
-        <tr>
-            <td colspan="2" style="text-align:center; padding-top:10px;">
+            <div class="form-actions full-width">
                 <button type="submit">Guardar</button>
-            </td>
-        </tr>
-    </table>
-    </form>
-
+                <button type="reset">Limpiar</button>
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>
