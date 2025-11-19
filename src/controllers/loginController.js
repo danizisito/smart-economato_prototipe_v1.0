@@ -1,4 +1,5 @@
 import { AuthService } from "../services/authServices.js";
+import { LoginUI } from "../views/login-ui.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -7,17 +8,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.addEventListener("submit", async (event) => {
 
-        event.preventDefault(); 
-        const usuario = document.getElementById("username").value;
-        const contraseña = document.getElementById("password").value;
+        event.preventDefault();
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
 
         try {
-
-            const user = await AuthService.login(usuario, contraseña);
-            window.location.href = './economato.html';
+            if (!username || !password) {
+                throw new Error("El usuario y la contraseña son obligatorios");
+            }
+            const user = await AuthService.login(username, password);
+            if (user) {
+                window.location.href = './economato.html';
+            } else {
+                throw new Error("ERROR");
+            }
 
         } catch (error) {
             //Vamos viendo que poner
+            LoginUI.showMessage(error.message, "error");
         }
     }
     )

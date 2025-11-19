@@ -14,10 +14,11 @@
         <h1 class="login-titulo">Iniciar Sesión</h1>
         <form id="login-formulario" class="login-formulario">
             <label class="login-label" for="username">Usuario:</label>
-            <input class="login-input" type="text" id="username" name="username" required>
+            <input class="login-input" type="text" id="username" name="username">
             <label class="login-label" for="password">Contraseña:</label>
-            <input class="login-input" type="password" id="password" name="password" required>
+            <input class="login-input" type="password" id="password" name="password">
             <input class="login-button" type="submit" value="login">
+            <p id="loginMessage" class="message"></p>
         </form>
         <script type="module" src="../src/controllers/loginController.js"></script>
     </div>
