@@ -1,23 +1,12 @@
-<!DOCTYPE html>
-<html lang="es">
+<div class="economato-wrapper">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smart Economato - Prototipo</title>
-  <link rel="stylesheet" href="../assets/css/estilo.css" />
-  <script type="module" src="../src/controllers/almacenController.js"></script>
-</head>
-
-<body>
-  <h1>Smart Economato - Prototipo</h1>
+  <h1 class="eco-title">Smart Economato - Prototipo</h1>
 
   <div class="controles">
     <input type="text" id="busqueda" placeholder="Buscar producto..." />
     <button id="btnBuscar">Buscar</button>
 
-    <select id="categoriaSelect">
-    </select>
+    <select id="categoriaSelect"></select>
 
     <select id="ordenSelect">
       <option value="asc">Precio ascendente</option>
@@ -26,7 +15,7 @@
 
     <button id="btnStock">Comprobar stock</button>
     <button id="btnMostrarTodos">Mostrar todos</button>
-    <button id="btnAnadirProducto" onclick="window.location.href='anadirProducto.html'">Añadir Producto</button>
+    <button id="btnAnadirProducto">Añadir Producto</button>
   </div>
 
   <table id="tablaProductos">
@@ -49,6 +38,5 @@
       </tr>
     </tfoot>
   </table>
-</body>
 
-</html>
+</div>

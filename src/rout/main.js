@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
             e.target.classList.add("active");
 
             try {
-                const response = await fetch(`templates/${page}.html`);
+                const response = await fetch(`${page}.html`);
                 if (!response.ok) throw new Error("Página no encontrada");
                 const html = await response.text();
                 content.innerHTML = html;

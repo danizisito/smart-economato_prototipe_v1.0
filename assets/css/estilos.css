@@ -255,3 +255,29 @@
 
 
 
+/* === Aislar la vista del economato === */
+
+.economato-wrapper {
+  width: 95%;          /* ocupa casi todo el ancho */
+  max-width: 1600px;   /* evita que se haga gigante en pantallas enormes */
+  margin: 20px auto;   /* centra el contenido */
+  padding: 30px;       /* esFXHpacio interior */
+  background: white;   /* fondo blanco */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* sombrita suave */
+}
+
+
+.economato-wrapper * {
+    color: black !important;
+}
+
+.contenido {
+    background-image: none !important;
+    display: block;
+    padding: 20px;
+}
+.contenedor-prototipo {
+    width: 95%;
+    margin: 20px auto;
+}
