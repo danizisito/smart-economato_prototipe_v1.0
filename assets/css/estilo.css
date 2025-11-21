@@ -1,3 +1,5 @@
+@import url("../css/estilos.css");
+
 body {
   font-family: system-ui, sans-serif;
   background: #f8fafc;
@@ -27,7 +29,7 @@ button {
 }
 
 button {
-  background: #0077cc;
+  background: var(--primary-color);
   color: white;
   cursor: pointer;
   border: none;
@@ -35,7 +37,7 @@ button {
 }
 
 button:hover {
-  background: #005fa3;
+  background: var(--primary-color);
 }
 
 table {

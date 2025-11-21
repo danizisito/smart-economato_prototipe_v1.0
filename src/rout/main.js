@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             const page = e.target.dataset.page;
 
-            // Activar link
             links.forEach(l => l.classList.remove("active"));
             e.target.classList.add("active");
 
