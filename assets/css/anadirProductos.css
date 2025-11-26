@@ -1,152 +1,133 @@
 @import url("../css/estilos.css");
 
-/* ======== BASE ======== */
-
-body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  background: #f0f2f5;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* ======== FORM WRAPPER ======== */
+.form-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-h1 {
-  text-align: center;
-  padding: 22px;
-  margin: 0;
-  background-color: var(--primary-color);
-  color: white;
-  font-size: 26px;
-  letter-spacing: 1px;
+.form-container-wrapper {
+    width: 100%;
+    max-width: 1000px; /* Máximo ancho del formulario en portátil */
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas por defecto */
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-/* ======== CONTENEDOR DEL FORMULARIO ======== */
-
-.form-container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 25px;
-  overflow-y: auto;
-}
-
-form {
-  background: white;
-  padding: 35px;
-  border-radius: 14px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  width: 100%;
-  max-width: 1100px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 25px;
+/* ======== TITULO ======== */
+.form-container-wrapper h2 {
+    grid-column: span 2;
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 15px;
 }
 
 /* ======== CAMPOS ======== */
-
 .form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 label {
-  font-weight: bold;
-  font-size: 16px;
-  color: #333;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
 }
 
 input,
 select,
 textarea {
-  padding: 14px 12px;
-  border: 1px solid #c9c9c9;
-  border-radius: 8px;
-  font-size: 16px;
-  background: #fafafa;
+    padding: 12px;
+    border: 1px solid #c9c9c9;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #fafafa;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 textarea {
-  resize: vertical;
+    resize: vertical;
 }
 
-/* Campo doble */
-
+/* Campo doble ocupa toda la fila */
 .full-width {
-  grid-column: span 2;
+    grid-column: span 2;
 }
 
 /* ======== BOTONES ======== */
-
 .form-actions {
-  grid-column: span 2;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 10px;
+    grid-column: span 2;
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    margin-top: 15px;
 }
 
 button {
-  padding: 14px 28px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 17px;
-  font-weight: bold;
-  min-width: 160px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 120px;
 }
 
 button[type="submit"] {
-  background-color: var(--primary-color);
-  color: white;
+    background-color: var(--primary-color);
+    color: white;
 }
 
 button[type="reset"] {
-  background-color: #6c757d;
-  color: white;
+    background-color: #6c757d;
+    color: white;
 }
 
-/* ======== RESPONSIVE PARA TABLETS ======== */
+#btnVolver {
+    background-color: #007bff;
+    color: white;
+}
 
+/* ======== RESPONSIVE ======== */
+
+/* Tablets y portátiles pequeños: 1 columna */
 @media (max-width: 1024px) {
-  form {
-    grid-template-columns: 1fr;
-    max-width: 95%;
-    padding: 25px;
-  }
+    .form-container-wrapper {
+        grid-template-columns: 1fr; /* Una columna */
+    }
 
-  .full-width {
-    grid-column: span 1;
-  }
+    .full-width {
+        grid-column: span 1;
+    }
 
-  button {
-    width: 100%;
-  }
+    .form-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
 
-  .form-actions {
-    flex-direction: column;
-    gap: 12px;
-  }
+    button {
+        width: 100%;
+    }
 }
 
-/* ======== MOVIL PEQUEÑO ======== */
-
+/* Móviles pequeños */
 @media (max-width: 600px) {
-  h1 {
-    font-size: 22px;
-    padding: 15px;
-  }
+    input, select, textarea {
+        font-size: 15px;
+        padding: 10px;
+    }
 
-  form {
-    padding: 15px;
-  }
-
-  input,
-  select,
-  textarea {
-    font-size: 15px;
-    padding: 12px;
-  }
+    .form-container-wrapper h2 {
+        font-size: 20px;
+    }
 }
