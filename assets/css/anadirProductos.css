@@ -1,25 +1,34 @@
 @import url("../css/estilos.css");
 
-/* ======== FORM WRAPPER ======== */
+/* ======== FORM WRAPPER (Contenedor externo) ======== */
 .form-wrapper {
     width: 100%;
+    margin-top: 20px;
+    padding: 0 15px;
     display: flex;
     justify-content: center;
-    padding: 20px;
-    box-sizing: border-box;
 }
 
+/* ======== FORMULARIO ======== */
 .form-container-wrapper {
     width: 100%;
-    max-width: 1000px; /* Máximo ancho del formulario en portátil */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
     background-color: white;
     border-radius: 12px;
     box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Dos columnas por defecto */
+    grid-template-columns: repeat(2, 1fr); /* 2 campos por fila */
     gap: 20px;
-    padding: 20px;
     box-sizing: border-box;
+    color: black;
+    text-align: left;
+}
+
+/* Campos que ocupan toda la fila */
+.full-width {
+    grid-column: span 2;
 }
 
 /* ======== TITULO ======== */
@@ -27,7 +36,7 @@
     grid-column: span 2;
     text-align: center;
     color: var(--primary-color);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 /* ======== CAMPOS ======== */
@@ -46,7 +55,7 @@ label {
 input,
 select,
 textarea {
-    padding: 12px;
+    padding: 12px 10px;
     border: 1px solid #c9c9c9;
     border-radius: 8px;
     font-size: 16px;
@@ -59,18 +68,13 @@ textarea {
     resize: vertical;
 }
 
-/* Campo doble ocupa toda la fila */
-.full-width {
-    grid-column: span 2;
-}
-
 /* ======== BOTONES ======== */
 .form-actions {
     grid-column: span 2;
     display: flex;
     justify-content: space-around;
     gap: 15px;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 button {
@@ -99,11 +103,17 @@ button[type="reset"] {
 }
 
 /* ======== RESPONSIVE ======== */
-
-/* Tablets y portátiles pequeños: 1 columna */
 @media (max-width: 1024px) {
     .form-container-wrapper {
-        grid-template-columns: 1fr; /* Una columna */
+        max-width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .form-container-wrapper {
+        grid-template-columns: 1fr; /* 1 campo por fila */
     }
 
     .full-width {
@@ -117,17 +127,5 @@ button[type="reset"] {
 
     button {
         width: 100%;
-    }
-}
-
-/* Móviles pequeños */
-@media (max-width: 600px) {
-    input, select, textarea {
-        font-size: 15px;
-        padding: 10px;
-    }
-
-    .form-container-wrapper h2 {
-        font-size: 20px;
     }
 }

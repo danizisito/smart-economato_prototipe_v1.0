@@ -12,8 +12,6 @@ export async function inicializar() {
     const selectOrden = document.querySelector("#ordenSelect");
     const btnAnadir = document.querySelector("#btnAnadirProducto");
     const formWrapper = document.querySelector("#formWrapper");
-    const tabla = document.querySelector("#tablaProductos");
-    const controles = document.querySelector(".controles");
 
     // Obtener productos y categorías
     productos = await getProducto();
@@ -51,26 +49,20 @@ export async function inicializar() {
 
     // Cargar formulario de añadir producto en la misma página
     async function onAnadirProducto() {
+        const tabla = document.querySelector("#tablaProductos");
+        const controles = document.querySelector(".controles");
+
+        // Ocultar tabla y controles
+        tabla.style.display = "none";
+        controles.style.display = "none";
+
         try {
             const response = await fetch("../templates/anadirProducto.html");
             if (!response.ok) throw new Error("No se pudo cargar el formulario");
-
-            // Ocultar tabla y controles
-            tabla.style.display = "none";
-            controles.style.display = "none";
-
-            // Insertar formulario
             formWrapper.innerHTML = await response.text();
 
-            // Crear botón de volver
-            const btnVolver = document.createElement("button");
-            btnVolver.id = "btnVolver";
-            btnVolver.textContent = "Volver al Inventario";
-            btnVolver.style.margin = "15px auto";
-            btnVolver.style.display = "block";
-            formWrapper.prepend(btnVolver);
-
-            // Volver a mostrar tabla y controles al hacer click
+            // Inicializar botón "Volver"
+            const btnVolver = document.querySelector("#btnVolver");
             btnVolver.addEventListener("click", () => {
                 formWrapper.innerHTML = "";
                 tabla.style.display = "";
@@ -83,6 +75,13 @@ export async function inicializar() {
     }
 
     // Vincular eventos
+    function bindEvents(events) {
+        for (const { selector, event, handler } of events) {
+            const el = document.querySelector(selector);
+            if (el) el.addEventListener(event, handler);
+        }
+    }
+
     const eventMap = [
         { selector: "#btnBuscar", event: "click", handler: onBuscar },
         { selector: "#ordenSelect", event: "change", handler: onOrdenar },
@@ -91,8 +90,5 @@ export async function inicializar() {
         { selector: "#btnAnadirProducto", event: "click", handler: onAnadirProducto },
     ];
 
-    for (const { selector, event, handler } of eventMap) {
-        const el = document.querySelector(selector);
-        if (el) el.addEventListener(event, handler);
-    }
+    bindEvents(eventMap);
 }
