@@ -59,7 +59,20 @@ export async function inicializar() {
         try {
             const response = await fetch("../templates/anadirProducto.html");
             if (!response.ok) throw new Error("No se pudo cargar el formulario");
+
             formWrapper.innerHTML = await response.text();
+
+            // ***************************************************************
+            // * CORRECCIÓN: APLICAR ESTILOS GRID DIRECTAMENTE CON JAVASCRIPT *
+            // ***************************************************************
+            const formContainer = document.querySelector(".form-container-wrapper");
+            if (formContainer) {
+                // Esto asegura que las reglas Grid se apliquen justo después de inyectar el HTML
+                formContainer.style.display = 'grid';
+                formContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
+                formContainer.style.gap = '20px';
+            }
+            // ***************************************************************
 
             // Inicializar botón "Volver"
             const btnVolver = document.querySelector("#btnVolver");
