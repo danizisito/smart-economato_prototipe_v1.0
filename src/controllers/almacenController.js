@@ -47,34 +47,27 @@ export async function inicializar() {
         renderizarTabla(productosMostrados);
     }
 
-    // Cargar formulario de añadir producto en la misma página
     async function onAnadirProducto() {
         const tabla = document.querySelector("#tablaProductos");
         const controles = document.querySelector(".controles");
 
-        // Ocultar tabla y controles
         tabla.style.display = "none";
         controles.style.display = "none";
 
         try {
             const response = await fetch("../templates/anadirProducto.html");
-            if (!response.ok) throw new Error("No se pudo cargar el formulario");
-
+            if (!response.ok) throw new Error("Página no encontrada");
+            
             formWrapper.innerHTML = await response.text();
 
-            // ***************************************************************
-            // * CORRECCIÓN: APLICAR ESTILOS GRID DIRECTAMENTE CON JAVASCRIPT *
-            // ***************************************************************
+            // Aplicar grid de 4 columnas
             const formContainer = document.querySelector(".form-container-wrapper");
             if (formContainer) {
-                // Esto asegura que las reglas Grid se apliquen justo después de inyectar el HTML
                 formContainer.style.display = 'grid';
-                formContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
-                formContainer.style.gap = '20px';
+                formContainer.style.gridTemplateColumns = 'repeat(4, 1fr)';
+                formContainer.style.gap = '20px'; 
             }
-            // ***************************************************************
 
-            // Inicializar botón "Volver"
             const btnVolver = document.querySelector("#btnVolver");
             btnVolver.addEventListener("click", () => {
                 formWrapper.innerHTML = "";
@@ -87,7 +80,6 @@ export async function inicializar() {
         }
     }
 
-    // Vincular eventos
     function bindEvents(events) {
         for (const { selector, event, handler } of events) {
             const el = document.querySelector(selector);

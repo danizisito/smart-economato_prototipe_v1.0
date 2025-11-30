@@ -1,3 +1,4 @@
+/* estilo.css */
 @import url("../css/estilos.css");
 
 body {
@@ -58,8 +59,9 @@ th {
   background: #e0e0e0;
 }
 
+/* La solución de prioridad para el color rojo */
 tr.alerta {
-  background: #ffe4e1;
+  background: #ffe4e1 !important; 
 }
 
 tfoot td {

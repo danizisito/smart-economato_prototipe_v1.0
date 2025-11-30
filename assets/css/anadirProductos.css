@@ -1,28 +1,29 @@
 /* anadirProductos.css */
 
-/* ❌ ASEGÚRATE DE QUE NO HAYA UN @import AQUÍ */
-
-/* ======== FORM WRAPPER (Contenedor externo) ======== */
+/* ======== FORM WRAPPER ======== */
 .form-wrapper {
-    width: 100%;
-    margin-top: 20px;
-    padding: 0 15px;
+    width: 100%; /* ocupar el ancho del contenedor principal */
+    margin: 0 auto;
+    padding: 0 15px; /* pequeño padding para no tocar bordes */
     display: flex;
     justify-content: center;
+    box-sizing: border-box;
 }
 
-/* ======== FORMULARIO ======== */
+/* ======== FORM CONTAINER ======== */
 .form-container-wrapper {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1600px; /* máximo ancho del formulario */
     margin: 0 auto;
     padding: 30px;
     background-color: white;
     border-radius: 12px;
     box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 campos por fila */
+    grid-template-columns: repeat(6, 1fr); /* más horizontal */
     gap: 20px;
+
     box-sizing: border-box;
     color: black;
     text-align: left;
@@ -30,12 +31,12 @@
 
 /* Campos que ocupan toda la fila */
 .full-width {
-    grid-column: span 2;
+    grid-column: span 6 !important; /* ocupa las 6 columnas */
 }
 
 /* ======== TITULO ======== */
 .form-container-wrapper h2 {
-    grid-column: span 2;
+    grid-column: span 6;
     text-align: center;
     color: var(--primary-color);
     margin-bottom: 20px;
@@ -72,7 +73,7 @@ textarea {
 
 /* ======== BOTONES ======== */
 .form-actions {
-    grid-column: span 2;
+    grid-column: span 6;
     display: flex;
     justify-content: space-around;
     gap: 15px;
@@ -105,28 +106,36 @@ button[type="reset"] {
 }
 
 /* ======== RESPONSIVE ======== */
+@media (max-width: 1440px) {
+    .form-container-wrapper {
+        grid-template-columns: repeat(4, 1fr);
+        padding: 20px;
+    }
+    .full-width {
+        grid-column: span 4;
+    }
+}
+
 @media (max-width: 1024px) {
     .form-container-wrapper {
-        max-width: 100%;
         grid-template-columns: repeat(2, 1fr);
-        padding: 20px;
+    }
+    .full-width {
+        grid-column: span 2;
     }
 }
 
 @media (max-width: 767px) {
     .form-container-wrapper {
-        grid-template-columns: 1fr; /* 1 campo por fila */
+        grid-template-columns: 1fr;
     }
-
     .full-width {
         grid-column: span 1;
     }
-
     .form-actions {
         flex-direction: column;
         gap: 12px;
     }
-
     button {
         width: 100%;
     }
