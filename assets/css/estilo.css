@@ -1,70 +1,116 @@
-/* estilo.css */
-@import url("../css/estilos.css");
+/* ====================================
+   estilo.css — Estilo global moderno (Tabla Corregida)
+==================================== */
+
+/* Fuente general */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+:root {
+    --primary-color: #e84735; /* Rojo/Naranja principal */
+    --secondary-color: #555555; /* Gris oscuro */
+    --bg-color: #f4f6f9; /* Fondo muy claro */
+    --text-color: #222;
+    --radius: 14px;
+    --transition: 0.25s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
 
 body {
-  font-family: system-ui, sans-serif;
-  background: #f8fafc;
-  margin: 0;
+    background: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
 }
 
-h1 {
-  text-align: center;
-  color: #005fa3;
+/* Links */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
 }
 
-.controles {
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
+a:hover {
+    color: var(--secondary-color);
 }
 
-input,
-select,
-button {
-  padding: 0.6rem 1rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 0.9rem;
+/* Títulos */
+h1, h2, h3 {
+    font-weight: 800;
 }
 
-button {
-  background: var(--primary-color);
-  color: white;
-  cursor: pointer;
-  border: none;
-  transition: 0.2s;
+/* Botón general moderno y Controles de tabla */
+.btn, button, input[type="submit"] {
+    padding: 12px 24px;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    transition: var(--transition);
+    background: var(--primary-color);
+    color: white;
 }
 
-button:hover {
-  background: var(--primary-color);
+.btn:hover, button:hover, input[type="submit"]:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
 }
 
+/* ---------------------------------
+   ESTILOS DE TABLA (Unificados y Limpios)
+   --------------------------------- */
 table {
   width: 100%;
   border-collapse: collapse;
   background: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-th,
-td {
-  border: 1px solid #ddd;
-  padding: 0.5rem;
-  text-align: left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+  border-radius: var(--radius); /* Aplicar el borde redondeado al contenedor de la tabla */
+  overflow: hidden; /* Asegurar que los bordes redondeados se apliquen al contenido */
 }
 
 th {
+  /* Fondo del encabezado de la tabla */
   background: #e0e0e0;
+  color: var(--text-color);
+  padding: 12px 15px; /* Padding limpio */
+  text-align: left;
+  font-weight: 700;
+  border: none; /* Asegurar que no haya bordes de celda en el encabezado */
 }
 
-/* La solución de prioridad para el color rojo */
+td {
+  padding: 12px 15px; /* Padding limpio para el contenido */
+  background: #fff;
+  border-bottom: 1px solid #eee; /* Divisor sutil */
+  transition: var(--transition);
+  border: none;
+}
+
+/* Hover en las filas */
+#tablaProductos tbody tr:hover td {
+    background: #f0f7ff;
+}
+
+/* Diseño Rayado (Stripe) */
+#tablaProductos tbody tr:nth-child(even) {
+    background-color: #f9f9f9; 
+}
+
+/* Alerta de Stock */
 tr.alerta {
-  background: #ffe4e1 !important; 
+  background: #ffe4e1 !important; /* Mantenemos la prioridad forzada */
 }
 
 tfoot td {
   font-weight: bold;
   background: #f4f4f4;
+  /* Asegurar que el padding del footer sea consistente */
+  padding: 12px 15px; 
+  border-top: 1px solid #ddd;
 }

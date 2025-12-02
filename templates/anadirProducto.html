@@ -1,6 +1,8 @@
 <form action="#" method="POST" id="formAnadirProducto">
-    <div class="form-container-wrapper">
-        
+    <div class="form-container-wrapper" style="display: grid !important; 
+                grid-template-columns: repeat(2, 1fr) !important; 
+                gap: 20px !important;">
+
         <h2 class="full-width">Añadir Producto</h2>
 
         <div class="form-group">
@@ -9,50 +11,49 @@
         </div>
 
         <div class="form-group">
+            <label for="marcaProducto">Marca:</label>
+            <input type="text" id="marcaProducto" name="marcaProducto">
+        </div>
+
+        <div class="form-group">
             <label for="precioProducto">Precio (€):</label>
             <input type="number" id="precioProducto" name="precioProducto" step="0.01">
         </div>
 
         <div class="form-group">
-            <label for="precioUnitario">Precio Unitario:</label>
-            <input type="number" id="precioUnitario" name="precioUnitario" step="0.01">
+            <label for="unidadMedida">Unidad de Medida:</label>
+            <input type="text" id="unidadMedida" name="unidadMedida" placeholder="Ej: kg, litro, unidad">
         </div>
 
         <div class="form-group">
             <label for="stockProducto">Stock:</label>
             <input type="number" id="stockProducto" name="stockProducto">
         </div>
-        
+
         <div class="form-group">
             <label for="stockMinimo">Stock Mínimo:</label>
             <input type="number" id="stockMinimo" name="stockMinimo">
         </div>
 
         <div class="form-group">
-            <label for="categoriaId">Categoría Id:</label>
-            <input type="text" id="categoriaId" name="categoriaId">
+            <label for="categoriaId">Categoría:</label>
+            <select id="categoriaId" name="categoriaId">
+                <option value="">-- Seleccione Categoría --</option>
+            </select>
         </div>
 
         <div class="form-group">
-            <label for="proveedorId">Proveedor Id:</label>
-            <input type="text" id="proveedorId" name="proveedorId">
-        </div>
-
-        <div class="form-group">
-            <label for="unidadMedida">Unidad de Medida:</label>
-            <input type="text" id="unidadMedida" name="unidadMedida">
-        </div>
-
-        <div class="form-group">
-            <label for="marcaProducto">Marca:</label>
-            <input type="text" id="marcaProducto" name="marcaProducto">
+            <label for="proveedorId">Proveedor:</label>
+            <select id="proveedorId" name="proveedorId">
+                <option value="">-- Seleccione Proveedor --</option>
+            </select>
         </div>
 
         <div class="form-group">
             <label for="codigoBarras">Código de Barras:</label>
             <input type="text" id="codigoBarras" name="codigoBarras">
         </div>
-        
+
         <div class="form-group">
             <label for="fechaCaducidad">Fecha de Caducidad:</label>
             <input type="date" id="fechaCaducidad" name="fechaCaducidad">
@@ -60,17 +61,10 @@
 
         <div class="form-group">
             <label for="alergenos">Alérgenos:</label>
-            <input type="text" id="alergenos" name="alergenos">
+            <input type="text" id="alergenos" name="alergenos" placeholder="Ej: Gluten, Lácteos">
         </div>
 
         <div class="form-group">
-            <label for="proveedorProducto">Proveedor:</label>
-            <input type="text" id="proveedorProducto" name="proveedorProducto">
-        </div>
-
-        <div class="form-group">
-            <label for="islaProducto">Isla:</label>
-            <input type="text" id="islaProducto" name="islaProducto">
         </div>
 
         <div class="form-group full-width">

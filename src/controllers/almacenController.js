@@ -1,10 +1,11 @@
-import { getProducto, getCategoria } from "../services/economatoService.js";
+import { getProducto, getCategoria, getProveedor, addProducto } from "../services/economatoService.js";
 import { filtrarPorCategoria, buscarProducto, ordenarPorPrecio } from "../utils/funciones.js";
-import { renderizarTabla, renderizarCategorias } from "../views/economato-ui.js";
+import { renderizarTabla, renderizarCategorias, renderizarSelectoresFormulario } from "../views/economato-ui.js";
 
 let productos = [];
 let productosMostrados;
 let categoriasMostradas;
+let proveedoresData = [];
 
 export async function inicializar() {
     const inputBusqueda = document.querySelector("#busqueda");
@@ -13,7 +14,7 @@ export async function inicializar() {
     const btnAnadir = document.querySelector("#btnAnadirProducto");
     const formWrapper = document.querySelector("#formWrapper");
 
-    // Obtener productos y categorías
+    // Obtener productos y categorías (para la tabla y filtros)
     productos = await getProducto();
     productosMostrados = [...productos];
     renderizarTabla(productosMostrados);
@@ -21,7 +22,10 @@ export async function inicializar() {
     categoriasMostradas = await getCategoria();
     renderizarCategorias(categoriasMostradas);
 
-    // Funciones de búsqueda, filtro y orden
+    // OBTENER PROVEEDORES (Para el formulario)
+    proveedoresData = await getProveedor();
+
+    // Funciones de búsqueda, filtro y orden... (sin cambios)
     function onBuscar() {
         const termino = inputBusqueda.value.trim();
         productosMostrados = buscarProducto(productos, termino);
@@ -47,27 +51,31 @@ export async function inicializar() {
         renderizarTabla(productosMostrados);
     }
 
+    // Cargar formulario de añadir producto en la misma página
     async function onAnadirProducto() {
         const tabla = document.querySelector("#tablaProductos");
         const controles = document.querySelector(".controles");
 
+        // Ocultar tabla y controles
         tabla.style.display = "none";
         controles.style.display = "none";
 
         try {
             const response = await fetch("../templates/anadirProducto.html");
             if (!response.ok) throw new Error("Página no encontrada");
-            
+
             formWrapper.innerHTML = await response.text();
 
-            // Aplicar grid de 4 columnas
-            const formContainer = document.querySelector(".form-container-wrapper");
-            if (formContainer) {
-                formContainer.style.display = 'grid';
-                formContainer.style.gridTemplateColumns = 'repeat(4, 1fr)';
-                formContainer.style.gap = '20px'; 
-            }
+            // Renderizar Categorías y Proveedores
+            renderizarSelectoresFormulario(categoriasMostradas, proveedoresData);
 
+            // *********************************************************
+            // NUEVO: MANEJO DEL SUBMIT DEL FORMULARIO
+            // *********************************************************
+            const form = document.querySelector("#formAnadirProducto");
+            form.addEventListener("submit", handleFormSubmit);
+
+            // Inicializar botón "Volver"
             const btnVolver = document.querySelector("#btnVolver");
             btnVolver.addEventListener("click", () => {
                 formWrapper.innerHTML = "";
@@ -80,6 +88,70 @@ export async function inicializar() {
         }
     }
 
+    // NUEVA FUNCIÓN: Recoge datos y envía a la API
+    async function handleFormSubmit(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        const formData = new FormData(form);
+        const productoData = {};
+
+        // Recoger todos los campos del formulario
+        for (const [key, value] of formData.entries()) {
+            // Convertir números donde sea necesario
+            if (['precioProducto', 'precioUnitario', 'stockProducto', 'stockMinimo', 'categoriaId', 'proveedorId'].includes(key)) {
+                productoData[key] = parseFloat(value) || parseInt(value) || value;
+            } else {
+                productoData[key] = value;
+            }
+        }
+
+        // Mapear los campos del formulario a la estructura final del producto
+        const nuevoProducto = {
+            nombre: productoData.nombreProducto,
+            precio: productoData.precioProducto,
+            precioUnitario: productoData.unidadMedida, // Usamos unidadMedida como precioUnitario
+            stock: productoData.stockProducto,
+            stockMinimo: productoData.stockMinimo,
+            categoriaId: parseInt(productoData.categoriaId),
+            proveedorId: parseInt(productoData.proveedorId),
+            unidadMedida: productoData.unidadMedida,
+            marca: productoData.marcaProducto,
+            codigoBarras: productoData.codigoBarras,
+            fechaCaducidad: productoData.fechaCaducidad,
+            alergenos: productoData.alergenos.split(',').map(a => a.trim()),
+            descripcion: productoData.descripcionProducto,
+            // Campos por defecto que podría necesitar el modelo (ajustar según tu JSON Server)
+            imagen: "default.jpg",
+            activo: true
+        };
+
+        try {
+            const productoGuardado = await addProducto(nuevoProducto);
+            alert(`Producto "${productoGuardado.nombre}" añadido con éxito! ID: ${productoGuardado.id}`);
+
+            // Opcional: Recargar la tabla principal (economato) para ver el nuevo producto
+            const tabla = document.querySelector("#tablaProductos");
+            const controles = document.querySelector(".controles");
+            const formWrapper = document.querySelector("#formWrapper");
+
+            // Ocultar formulario
+            formWrapper.innerHTML = "";
+            tabla.style.display = "";
+            controles.style.display = "";
+
+            // Recargar datos y renderizar
+            productos = await getProducto();
+            productosMostrados = [...productos];
+            renderizarTabla(productosMostrados);
+
+        } catch (error) {
+            alert(`Error al guardar el producto: ${error.message}`);
+        }
+    }
+    // ... (El resto de bindEvents)
+
+    // Vincular eventos
     function bindEvents(events) {
         for (const { selector, event, handler } of events) {
             const el = document.querySelector(selector);
