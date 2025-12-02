@@ -46,10 +46,8 @@ export function renderizarTabla(datos) {
 
 
 export function renderizarCategorias(categorias) {
+  // Selector para la barra de filtros (economato.html)
   const select = document.querySelector("#categoriaSelect");
-  // Esta función renderiza el selector de filtro en economato.html, no el del formulario.
-  // Pero la adaptaremos a renderizar el del formulario después. 
-
   select.textContent = '';
 
   const opcionDefault = document.createElement("option");
@@ -59,13 +57,13 @@ export function renderizarCategorias(categorias) {
 
   categorias.forEach((c) => {
     const option = document.createElement('option');
-    option.value = c.nombre;
+    option.value = c.id; // 🔑 CLAVE: Renderiza el ID numérico
     option.textContent = c.nombre;
     select.appendChild(option);
   })
 }
 
-// NUEVA FUNCIÓN: Renderizar selectores en el formulario (basado en el ID)
+// FUNCIÓN PARA EL FORMULARIO DE ADICIÓN (Poblar SELECTS)
 export function renderizarSelectoresFormulario(categorias, proveedores) {
   // 1. Renderizar Categorías en el formulario
   const selectCategoriaForm = document.querySelector("#categoriaId");
@@ -73,7 +71,7 @@ export function renderizarSelectoresFormulario(categorias, proveedores) {
     selectCategoriaForm.innerHTML = '<option value="">-- Seleccione Categoría --</option>';
     categorias.forEach(c => {
       const option = document.createElement('option');
-      option.value = c.id; // Usar el ID como valor
+      option.value = c.id;
       option.textContent = c.nombre;
       selectCategoriaForm.appendChild(option);
     });
@@ -85,7 +83,7 @@ export function renderizarSelectoresFormulario(categorias, proveedores) {
     selectProveedorForm.innerHTML = '<option value="">-- Seleccione Proveedor --</option>';
     proveedores.forEach(p => {
       const option = document.createElement('option');
-      option.value = p.id; // Usar el ID como valor
+      option.value = p.id;
       option.textContent = p.nombre;
       selectProveedorForm.appendChild(option);
     });

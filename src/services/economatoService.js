@@ -43,7 +43,7 @@ export async function getProveedor() {
   }
 }
 
-// NUEVA FUNCIÓN: PARA AÑADIR UN PRODUCTO VÍA POST
+// FUNCIÓN: Para añadir un producto vía POST
 export async function addProducto(producto) {
   try {
     const response = await fetch(`${API_URL}/productos`, {
@@ -55,15 +55,13 @@ export async function addProducto(producto) {
     });
 
     if (!response.ok) {
-      // Lanza un error si la respuesta del servidor no es 2xx
       throw new Error(`Error al añadir producto: ${response.statusText}`);
     }
 
-    // Retorna el producto creado (incluye el ID generado por JSON Server)
     return await response.json();
 
   } catch (error) {
     console.error("Error en addProducto:", error);
-    throw error; // Propaga el error para manejarlo en el controlador
+    throw error;
   }
 }
