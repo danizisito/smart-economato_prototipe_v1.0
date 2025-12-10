@@ -1,24 +1,31 @@
 const API_URL = 'http://localhost:3000';
 
 export const AuthService = {
+
     async login(username, password) {
         try {
-            const response = await fetch(`${API_URL}/usuarios?username=${username}&password=${password}`);
+            // 1️⃣ Buscar usuario por nombre
+            const response = await fetch(`${API_URL}/usuarios?username=${username}`);
             const data = await response.json();
-            //comprobamos si data tiene valores
+
+            // Si no existe → usuario incorrecto
             if (data.length === 0) {
-                throw new Error("Usuario o contraseña incorrectos");
+                return { error: "usuarioIncorrecto" };
             }
-            //No nos viene info del usuario
+
             const user = data[0];
+
+            // 2️⃣ Contraseña incorrecta
+            if (user.password !== password) {
+                return { error: "passwordIncorrecta" };
+            }
+
+            // 3️⃣ Login correcto
             return user;
+
         } catch (error) {
-            throw new Error(error.message)
-
+            return { error: "errorServidor" };
         }
-
-
-
     }
-}
 
+};

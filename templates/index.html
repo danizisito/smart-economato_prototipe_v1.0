@@ -7,11 +7,14 @@
     <title>GridTemplate</title>
 
     <link rel="stylesheet" href="../assets/css/estilos.css">
-    
-    <link rel="stylesheet" href="../assets/css/estilo.css"> 
-    
+    <link rel="stylesheet" href="../assets/css/estilo.css">
     <link rel="stylesheet" href="../assets/css/anadirProductos.css">
 
+    <!-- GRID.JS (CSS) -->
+    <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+
+    <!-- 💥 TU CSS PERSONALIZADO PARA GRID.JS -->
+    <link rel="stylesheet" href="../assets/css/grid-custom.css">
 </head>
 
 <body>
@@ -20,6 +23,7 @@
             <img src="../assets/img/logo/LOGO CIFP VIRGEN DE CANDELARIA.png" alt="Logo" class="logo">
             <h1 class="tituloPrin">Gestión Economato</h1>
         </header>
+
         <nav class="navBar">
             <a href="" data-page="Recepcion">Recepción</a>
             <a href="" data-page="DistribucionInterna">Distribución Interna</a>
@@ -29,13 +33,17 @@
             <a href="" data-page="economato">Inventario</a>
             <a href="" data-page="Usuario">Usuario</a>
         </nav>
+
         <div class="contenido">
             <h1 class="contenidoTit">CONTENIDO</h1>
         </div>
-        <footer>
-            Pie de Página
-        </footer>
+
+        <footer>Pie de Página</footer>
     </div>
+
+    <!-- GRID.JS (JS) -->
+    <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+
     <script type="module" src="../src/rout/main.js"></script>
 </body>
 

@@ -1,34 +1,68 @@
+import { comprobarLogin } from "../utils/authGuard.js";
 import { inicializar } from "../controllers/almacenController.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    const links = document.querySelectorAll(".navBar a");
-    const content = document.querySelector(".contenido");
 
+    // ==========================================
+    //  🔐 PROTEGER TODA LA APLICACIÓN
+    // ==========================================
+    comprobarLogin();
+
+    const links = document.querySelectorAll(".navBar a");
+    const contenido = document.querySelector(".contenido");
+
+    // ==========================================
+    //  📄 CAMBIO DE PÁGINAS
+    // ==========================================
     links.forEach(link => {
         link.addEventListener("click", async (e) => {
             e.preventDefault();
-            const page = e.target.dataset.page;
 
-            links.forEach(l => l.classList.remove("active"));
-            e.target.classList.add("active");
+            const page = e.target.dataset.page;
+            if (!page) return;
 
             try {
-                const response = await fetch(`../templates/${page}.html`);
+                // Detectar automáticamente dónde está index.html
+                const basePath = window.location.pathname.includes("/templates/")
+                    ? "./"
+                    : "./templates/";
 
-                if (!response.ok) throw new Error("Página no encontrada");
+                console.log("Cargando:", basePath + page + ".html");
 
-                const html = await response.text();
-                content.innerHTML = html; // Inyectamos el HTML
+                const res = await fetch(`${basePath}${page}.html`);
 
-                // Inicializar funciones del economato si estamos en esa página
+                if (!res.ok) {
+                    throw new Error(`No se encontró la página ${page}`);
+                }
+
+                const html = await res.text();
+                contenido.innerHTML = html;
+
+                // Si es Inventario, iniciar controlador
                 if (page === "economato") {
-                    // Llamamos a inicializar solo después de que el HTML exista en el DOM
                     inicializar();
                 }
 
             } catch (error) {
-                content.innerHTML = `<p style="color:red">${error.message}</p>`;
+                contenido.innerHTML = `<p style="color:red">${error.message}</p>`;
             }
         });
     });
+
+    // ==========================================
+    //  🚪 LOGOUT
+    // ==========================================
+    const logoutBtn = document.getElementById("logout");
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Borrar sesión
+            sessionStorage.removeItem("usuario");
+
+            // Redirigir
+            window.location.href = "./login.html";
+        });
+    }
 });

@@ -1,0 +1,165 @@
+/* ============================================
+   BODY GENERAL — Fondo limpio y centrado
+   ============================================ */
+.body-login {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+
+    background: #f3f4f6; /* gris suave moderno */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ============================================
+   TARJETA DEL LOGIN — Compacta + moderna
+   ============================================ */
+.login-container {
+    background: #ffffff;
+    width: 340px;
+    padding: 32px 28px;
+
+    border-radius: 14px;
+
+    /* Sombra premium: moderna, difusa, profesional */
+    box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.16),
+        0 6px 16px rgba(0, 0, 0, 0.10);
+
+    text-align: center;
+}
+
+
+/* ============================================
+   LOGO
+   ============================================ */
+.login-logo {
+    width: 80px;
+    margin-bottom: 14px;
+}
+
+
+/* ============================================
+   TÍTULO
+   ============================================ */
+.login-titulo {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1f2937; /* gris oscuro elegante */
+}
+
+
+/* ============================================
+   FORMULARIO
+   ============================================ */
+.login-formulario {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* Labels minimalistas */
+.login-label {
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+/* Inputs modernos */
+.login-input {
+    padding: 10px;
+    font-size: 15px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #f9fafb;
+
+    transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.login-input:focus {
+    outline: none;
+    border-color: #ec4c3c;
+    background: #ffffff;
+}
+
+
+/* ============================================
+   BOTÓN DE LOGIN
+   ============================================ */
+.login-button {
+    margin-top: 18px;
+    padding: 12px;
+
+    background-color: #ec4c3c;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+.login-button:hover {
+    background-color: #d63f30;
+    transform: translateY(-1px);
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+
+/* ============================================
+   ENLACE: ¿HAS OLVIDADO LA CONTRASEÑA?
+   ============================================ */
+.login-forgot {
+    margin-top: 12px;
+    text-align: center;
+
+    font-size: 14px;
+    color: #6b7280;
+    text-decoration: none;
+
+    transition: color 0.25s ease;
+}
+
+.login-forgot:hover {
+    color: #ec4c3c;
+}
+
+
+/* ============================================
+   MENSAJE DE ERROR O INFO
+   ============================================ */
+.message {
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #dc2626;
+    text-align: center;
+}
+
+/* ANIMACIÓN DE TEMBLOR AL FALLAR */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    50% { transform: translateX(6px); }
+    75% { transform: translateX(-6px); }
+    100% { transform: translateX(0); }
+}
+
+/* Clase que activa el temblor */
+.shake {
+    animation: shake 0.3s ease;
+}

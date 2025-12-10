@@ -1,6 +1,5 @@
 import { getProducto, getCategoria, getProveedor, addProducto } from "../services/economatoService.js";
-import { filtrarPorCategoria, buscarProducto, ordenarPorPrecio } from "../utils/funciones.js";
-import { renderizarTabla, renderizarCategorias, renderizarSelectoresFormulario } from "../views/economato-ui.js";
+import { renderizarTabla, renderizarSelectoresFormulario } from "../views/economato-ui.js";
 
 let productos = [];
 let productosMostrados;
@@ -8,9 +7,7 @@ let categoriasMostradas;
 let proveedoresData = [];
 
 export async function inicializar() {
-    const inputBusqueda = document.querySelector("#busqueda");
-    const selectCategoria = document.querySelector("#categoriaSelect");
-    const selectOrden = document.querySelector("#ordenSelect");
+
     const btnAnadir = document.querySelector("#btnAnadirProducto");
     const formWrapper = document.querySelector("#formWrapper");
 
@@ -21,42 +18,14 @@ export async function inicializar() {
     categoriasMostradas = await getCategoria();
     proveedoresData = await getProveedor();
 
+    // Renderizar tabla de productos
     renderizarTabla(productosMostrados);
-    renderizarCategorias(categoriasMostradas);
 
-
-    // Funciones de búsqueda, filtro y orden
-    function onBuscar() {
-        const termino = inputBusqueda.value.trim();
-        productosMostrados = buscarProducto(productos, termino);
-        renderizarTabla(productosMostrados);
-    }
-
-    function onOrdenar() {
-        const orden = selectOrden.value;
-        productosMostrados = ordenarPorPrecio(productos, orden);
-        renderizarTabla(productosMostrados);
-    }
-
-    async function onShowAll() {
-        productosMostrados = await getProducto();
-        inputBusqueda.value = "";
-        selectCategoria.value = "";
-        renderizarTabla(productosMostrados);
-    }
-
-    // 📢 FUNCIÓN DE FILTRADO CLAVE: Lee el ID como número
-    function onFiltrar() {
-        // Obtenemos el valor del selector y lo convertimos a entero (ID)
-        const catId = parseInt(selectCategoria.value);
-
-        // Si el valor es válido (no es NaN), filtramos
-        productosMostrados = !isNaN(catId) ? filtrarPorCategoria(productos, catId) : [...productos];
-        renderizarTabla(productosMostrados);
-    }
-
-    // Cargar formulario de añadir producto en la misma página
+    // ----------------------------------------------------
+    // FUNCIÓN PARA CARGAR FORMULARIO AÑADIR PRODUCTO
+    // ----------------------------------------------------
     async function onAnadirProducto() {
+
         const tabla = document.querySelector("#tablaProductos");
         const controles = document.querySelector(".controles");
 
@@ -64,30 +33,43 @@ export async function inicializar() {
         controles.style.display = "none";
 
         try {
-            const response = await fetch("../templates/anadirProducto.html");
-            if (!response.ok) throw new Error("Página no encontrada");
+            // ⭐ IMPORTANTE: Como index.html está en /templates, la ruta correcta es:
+            const path = "./anadirProducto.html";
 
-            formWrapper.innerHTML = await response.text();
+            const response = await fetch(path);
+            if (!response.ok) throw new Error(`Página no encontrada: ${path}`);
 
+            const html = await response.text();
+            formWrapper.innerHTML = html;
+
+            // Renderizar selectores del formulario
             renderizarSelectoresFormulario(categoriasMostradas, proveedoresData);
 
-            // MANEJO DEL SUBMIT DEL FORMULARIO
+            // Asegurar que el formulario existe antes de usar addEventListener
             const form = document.querySelector("#formAnadirProducto");
+            if (!form) throw new Error("formAnadirProducto no encontrado en el HTML cargado");
+
+            // Evento submit
             form.addEventListener("submit", handleFormSubmit);
 
+            // Botón volver
             const btnVolver = document.querySelector("#btnVolver");
-            btnVolver.addEventListener("click", () => {
-                formWrapper.innerHTML = "";
-                tabla.style.display = "";
-                controles.style.display = "";
-            });
+            if (btnVolver) {
+                btnVolver.addEventListener("click", () => {
+                    formWrapper.innerHTML = "";
+                    tabla.style.display = "";
+                    controles.style.display = "";
+                });
+            }
 
         } catch (error) {
-            formWrapper.innerHTML = `<p style="color:red">${error.message}</p>`;
+            formWrapper.innerHTML = `<p style="color:red">Error cargando formulario: ${error.message}</p>`;
         }
     }
 
-    // FUNCIÓN PRINCIPAL: Recoge datos y envía a la API
+    // ----------------------------------------------------
+    // FUNCIÓN PARA ENVIAR PRODUCTO A LA API
+    // ----------------------------------------------------
     async function handleFormSubmit(event) {
         event.preventDefault();
 
@@ -95,25 +77,24 @@ export async function inicializar() {
         const formData = new FormData(form);
         const productoData = {};
 
-        // Recoger todos los campos del formulario
+        // Asignar valores y convertir números correctamente
         for (const [key, value] of formData.entries()) {
-            if (['precioProducto', 'precioUnitario', 'stockProducto', 'stockMinimo', 'categoriaId', 'proveedorId'].includes(key)) {
-                productoData[key] = isNaN(parseFloat(value)) ? value : (value.includes('.') ? parseFloat(value) : parseInt(value));
+            if (['precioProducto', 'stockProducto', 'stockMinimo', 'categoriaId', 'proveedorId'].includes(key)) {
+                productoData[key] = value === "" ? null : parseFloat(value);
             } else {
                 productoData[key] = value;
             }
         }
 
-        // Mapear los campos del formulario a la estructura final del producto
+        // Crear objeto final que pide la API
         const nuevoProducto = {
             nombre: productoData.nombreProducto,
             precio: productoData.precioProducto,
-            precioUnitario: productoData.unidadMedida,
+            unidadMedida: productoData.unidadMedida,
             stock: productoData.stockProducto,
             stockMinimo: productoData.stockMinimo,
             categoriaId: parseInt(productoData.categoriaId),
             proveedorId: parseInt(productoData.proveedorId),
-            unidadMedida: productoData.unidadMedida,
             marca: productoData.marcaProducto,
             codigoBarras: productoData.codigoBarras,
             fechaCaducidad: productoData.fechaCaducidad,
@@ -125,18 +106,17 @@ export async function inicializar() {
 
         try {
             const productoGuardado = await addProducto(nuevoProducto);
-            alert(`Producto "${productoGuardado.nombre}" añadido con éxito! ID: ${productoGuardado.id}`);
+            alert(`Producto "${productoGuardado.nombre}" añadido con éxito. ID: ${productoGuardado.id}`);
 
-            // Volver a la vista principal y recargar la tabla
+            // Volver a mostrar la tabla
             const tabla = document.querySelector("#tablaProductos");
             const controles = document.querySelector(".controles");
-            const formWrapper = document.querySelector("#formWrapper");
 
             formWrapper.innerHTML = "";
             tabla.style.display = "";
             controles.style.display = "";
 
-            // Recargar datos y renderizar
+            // Recargar productos y tabla
             productos = await getProducto();
             productosMostrados = [...productos];
             renderizarTabla(productosMostrados);
@@ -146,7 +126,9 @@ export async function inicializar() {
         }
     }
 
-    // Vincular eventos (Botones de filtro de la tabla principal)
+    // ----------------------------------------------------
+    // REGISTRO DE EVENTOS
+    // ----------------------------------------------------
     function bindEvents(events) {
         for (const { selector, event, handler } of events) {
             const el = document.querySelector(selector);
@@ -155,11 +137,7 @@ export async function inicializar() {
     }
 
     const eventMap = [
-        { selector: "#btnBuscar", event: "click", handler: onBuscar },
-        { selector: "#ordenSelect", event: "change", handler: onOrdenar },
-        { selector: "#btnMostrarTodos", event: "click", handler: onShowAll },
-        { selector: "#categoriaSelect", event: "change", handler: onFiltrar },
-        { selector: "#btnAnadirProducto", event: "click", handler: onAnadirProducto },
+        { selector: "#btnAnadirProducto", event: "click", handler: onAnadirProducto }
     ];
 
     bindEvents(eventMap);

@@ -1,6 +1,11 @@
 /* ====================================
    estilo.css — Estilo global moderno (Tabla Corregida)
 ==================================== */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+}
 
 /* Fuente general */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
@@ -70,24 +75,23 @@ table {
   border-collapse: collapse;
   background: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
-  border-radius: var(--radius); /* Aplicar el borde redondeado al contenedor de la tabla */
-  overflow: hidden; /* Asegurar que los bordes redondeados se apliquen al contenido */
+  border-radius: var(--radius);
+  overflow: hidden;
 }
 
 th {
-  /* Fondo del encabezado de la tabla */
   background: #e0e0e0;
   color: var(--text-color);
-  padding: 12px 15px; /* Padding limpio */
+  padding: 12px 15px;
   text-align: left;
   font-weight: 700;
-  border: none; /* Asegurar que no haya bordes de celda en el encabezado */
+  border: none;
 }
 
 td {
-  padding: 12px 15px; /* Padding limpio para el contenido */
+  padding: 12px 15px;
   background: #fff;
-  border-bottom: 1px solid #eee; /* Divisor sutil */
+  border-bottom: 1px solid #eee;
   transition: var(--transition);
   border: none;
 }
@@ -97,20 +101,42 @@ td {
     background: #f0f7ff;
 }
 
-/* Diseño Rayado (Stripe) */
+/* Diseño Rayado */
 #tablaProductos tbody tr:nth-child(even) {
     background-color: #f9f9f9; 
 }
 
 /* Alerta de Stock */
 tr.alerta {
-  background: #ffe4e1 !important; /* Mantenemos la prioridad forzada */
+  background: #ffe4e1 !important;
 }
 
 tfoot td {
   font-weight: bold;
   background: #f4f4f4;
-  /* Asegurar que el padding del footer sea consistente */
-  padding: 12px 15px; 
+  padding: 12px 15px;
   border-top: 1px solid #ddd;
 }
+
+/* =========================================================
+   GRID.JS — Personalización de paginación y summary
+   ========================================================= */
+
+/* Separar texto "Showing X to X of X results" */
+.gridjs-summary {
+    margin-right: 20px !important;
+    padding-left: 10px !important;
+}
+
+/* Mejorar altura y alineación general */
+.gridjs-pagination {
+    margin-top: 12px !important;
+    display: flex;
+    align-items: center;
+}
+
+/* Opcional: espacio extra entre summary y botones */
+.gridjs-pagination .gridjs-pages {
+    margin-left: 12px !important;
+}
+

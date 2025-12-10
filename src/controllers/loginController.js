@@ -1,34 +1,69 @@
 import { AuthService } from "../services/authServices.js";
-import { LoginUI } from "../views/login-ui.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
     const form = document.getElementById("login-formulario");
+    const message = document.getElementById("loginMessage");
+    const card = document.querySelector(".login-container");
 
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-    form.addEventListener("submit", async (event) => {
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
 
-        event.preventDefault();
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
+        // Validación básica
+        if (!username || !password) {
+            message.textContent = "Debes rellenar todos los campos.";
+            message.style.color = "red";
 
-
-        try {
-            if (!username || !password) {
-                throw new Error("El usuario y la contraseña son obligatorios");
-            }
-            const user = await AuthService.login(username, password);
-            if (user) {
-                window.location.href = './economato.html';
-            } else {
-                throw new Error("ERROR");
-            }
-
-        } catch (error) {
-            //Vamos viendo que poner
-            LoginUI.showMessage(error.message, "error");
+            // Activar animación
+            card.classList.add("shake");
+            setTimeout(() => card.classList.remove("shake"), 300);
+            return;
         }
-    }
-    )
-}
-)
+
+        const result = await AuthService.login(username, password);
+
+        // ================================
+        //        ERRORES ESPECÍFICOS
+        // ================================
+        if (result.error === "usuarioIncorrecto") {
+            message.textContent = "Usuario incorrecto.";
+            message.style.color = "red";
+
+            card.classList.add("shake");
+            setTimeout(() => card.classList.remove("shake"), 300);
+            return;
+        }
+
+        if (result.error === "passwordIncorrecta") {
+            message.textContent = "Contraseña incorrecta.";
+            message.style.color = "red";
+
+            card.classList.add("shake");
+            setTimeout(() => card.classList.remove("shake"), 300);
+            return;
+        }
+
+        if (result.error === "errorServidor") {
+            message.textContent = "Error al conectar con el servidor.";
+            message.style.color = "red";
+
+            card.classList.add("shake");
+            setTimeout(() => card.classList.remove("shake"), 300);
+            return;
+        }
+
+        // ================================
+        //           LOGIN CORRECTO
+        // ================================
+        sessionStorage.setItem("usuario", JSON.stringify(result));
+        message.textContent = "Inicio de sesión correcto.";
+        message.style.color = "green";
+
+        setTimeout(() => {
+            window.location.href = "./index.html";
+        }, 500);
+    });
+});
