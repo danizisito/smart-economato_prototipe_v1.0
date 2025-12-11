@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // ERRORES ESPECÍFICOS
 
         if (result.error === "usuarioIncorrecto") {
-            message.textContent = "Usuario incorrecto.";
+            message.textContent = "Usuario o Contraseña incorrecta.";
             message.style.color = "red";
 
             card.classList.add("shake");
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (result.error === "passwordIncorrecta") {
-            message.textContent = "Contraseña incorrecta.";
+            message.textContent = "Usuario o Contraseña incorrecta.";
             message.style.color = "red";
 
             card.classList.add("shake");
