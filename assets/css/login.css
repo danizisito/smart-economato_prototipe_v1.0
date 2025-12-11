@@ -1,118 +1,110 @@
-/* ============================================
-   BODY GENERAL — Fondo limpio y centrado
-   ============================================ */
-.body-login {
-    font-family: "Inter", sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
+/* LOGIN PAGE */
 
-    background: #f3f4f6; /* gris suave moderno */
+/* BODY GENERAL */
+body.body-login {
+    font-family: "Inter", sans-serif; 
+    
+    height: 100vh !important;
+    width: 100vw !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: var(--bg-color) !important; 
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    overflow: hidden !important;
 }
 
-
-/* ============================================
-   TARJETA DEL LOGIN — Compacta + moderna
-   ============================================ */
+/* TARJETA DEL LOGIN */
 .login-container {
-    background: #ffffff;
+    background: white !important;
     width: 340px;
-    padding: 32px 28px;
-
-    border-radius: 14px;
-
-    /* Sombra premium: moderna, difusa, profesional */
-    box-shadow:
-        0 12px 32px rgba(0, 0, 0, 0.16),
-        0 6px 16px rgba(0, 0, 0, 0.10);
+    padding: 36px 32px; 
+    
+    border-radius: var(--radius); 
+    box-shadow: var(--shadow-card); 
 
     text-align: center;
+    position: relative;
+    z-index: 10;
 }
 
-
-/* ============================================
-   LOGO
-   ============================================ */
+/* LOGO */
 .login-logo {
     width: 80px;
-    margin-bottom: 14px;
+    margin-bottom: 18px; 
 }
 
-
-/* ============================================
-   TÍTULO
-   ============================================ */
+/* TÍTULO */
 .login-titulo {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 700;
-    margin-bottom: 20px;
-    color: #1f2937; /* gris oscuro elegante */
+    margin-bottom: 25px;
+    color: var(--text-color);
 }
 
-
-/* ============================================
-   FORMULARIO
-   ============================================ */
+/* FORMULARIO */
 .login-formulario {
     display: flex;
     flex-direction: column;
     text-align: left;
 }
 
-/* Labels minimalistas */
 .login-label {
     font-size: 14px;
-    color: #4b5563;
+    color: #4b5563; 
     margin-bottom: 6px;
     font-weight: 600;
 }
 
-/* Inputs modernos */
 .login-input {
-    padding: 10px;
+    width: 100%;
+    padding: 11px 12px;
     font-size: 15px;
 
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    background: #f9fafb;
+    border: 1px solid var(--light-gray, #d1d5db) !important; 
+    border-radius: 8px !important; 
+    background: #f9fafb !important; 
 
-    transition: border-color 0.25s ease, background 0.25s ease;
+    transition: var(--transition);
 }
 
 .login-input:focus {
     outline: none;
-    border-color: #ec4c3c;
-    background: #ffffff;
+    border-color: var(--primary-color) !important;
+    background: white !important;
+    box-shadow: 0 0 0 3px var(--focus-ring, rgba(232, 71, 53, 0.4));
 }
 
 
-/* ============================================
-   BOTÓN DE LOGIN
-   ============================================ */
+/* BOTÓN DE LOGIN */
 .login-button {
-    margin-top: 18px;
-    padding: 12px;
+    margin-top: 20px; 
+    width: 100%;
+    padding: 14px;
 
-    background-color: #ec4c3c;
-    color: white;
+    background-color: var(--primary-color) !important;
+    color: white !important;
 
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
 
-    border: none;
-    border-radius: 8px;
+    border: none !important;
+    border-radius: 8px !important;
     cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
 
-    transition: background-color 0.25s ease, transform 0.15s ease;
+    transition: var(--transition);
 }
 
 .login-button:hover {
-    background-color: #d63f30;
-    transform: translateY(-1px);
+    background-color: var(--secondary-color) !important; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .login-button:active {
@@ -120,37 +112,32 @@
 }
 
 
-/* ============================================
-   ENLACE: ¿HAS OLVIDADO LA CONTRASEÑA?
-   ============================================ */
+/* ENLACE: ¿HAS OLVIDADO LA CONTRASEÑA? */
 .login-forgot {
-    margin-top: 12px;
-    text-align: center;
-
+    margin-top: 15px;
+    display: inline-block;
     font-size: 14px;
-    color: #6b7280;
-    text-decoration: none;
+    color: #6b7280 !important; 
+    text-decoration: none !important;
 
-    transition: color 0.25s ease;
+    transition: var(--transition);
 }
 
 .login-forgot:hover {
-    color: #ec4c3c;
+    color: var(--primary-color) !important; 
 }
 
-
-/* ============================================
-   MENSAJE DE ERROR O INFO
-   ============================================ */
+/* MENSAJE DE ERROR O INFO */
 .message {
     margin-top: 12px;
     font-size: 14px;
     font-weight: 600;
-    color: #dc2626;
+    color: var(--primary-color);
     text-align: center;
 }
 
-/* ANIMACIÓN DE TEMBLOR AL FALLAR */
+/* ANIMACIÓN SHAKE (Temblor al fallar) */
+
 @keyframes shake {
     0% { transform: translateX(0); }
     25% { transform: translateX(-6px); }
@@ -159,7 +146,6 @@
     100% { transform: translateX(0); }
 }
 
-/* Clase que activa el temblor */
 .shake {
-    animation: shake 0.3s ease;
+    animation: shake 0.3s ease forwards !important; 
 }

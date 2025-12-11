@@ -1,0 +1,111 @@
+/* COMPONENTES REUTILIZABLES */
+
+.economato-wrapper {
+    width: 100%;
+    max-width: 1360px; 
+    background: white;
+    margin: 0 auto; 
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+}
+
+/* Controles superiores (buscar + añadir) */
+.controles {
+    margin: 20px 0;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* GRID.JS PERSONALIZADO */
+
+.gridjs-summary {
+    margin-bottom: 10px !important;
+}
+
+.gridjs-wrapper {
+    overflow-x: auto !important;
+}
+
+/* NOMBRES DE COLUMNA COMPLETOS */
+.gridjs-th {
+    white-space: nowrap !important; 
+    text-overflow: clip !important; 
+}
+
+/* Contenedor general de la paginación */
+.gridjs-pagination {
+    padding: 15px 0 5px 0;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Estilo base para todos los botones (Previous, Next, números) */
+.gridjs-pages button {
+    all: unset; 
+    padding: 8px 14px;
+    margin: 0 4px; 
+    min-width: 38px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--secondary-color); 
+    background: #fff;
+    border: 1px solid var(--light-gray, #e2e8f0); 
+    border-radius: var(--radius); 
+    transition: var(--transition);
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Botón activo (la página en la que estamos) */
+.gridjs-pages button.gridjs-currentPage {
+    color: white;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    font-weight: 700;
+    box-shadow: var(--shadow-soft); 
+}
+
+/* Efecto hover */
+.gridjs-pages button:hover:not(.gridjs-currentPage) {
+    color: var(--primary-color);
+    background-color: var(--hover-bg, #f0f7ff);
+    border-color: var(--primary-color);
+}
+
+.gridjs-pages button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    color: var(--secondary-color);
+    background: #f8fafc;
+    border-color: var(--light-gray, #e2e8f0);
+}
+
+
+/* FORMULARIO AÑADIR PRODUCTO */
+
+body .economato-wrapper.form-anadir {
+    max-width: 800px !important; 
+    padding: 40px !important;
+    display: flex;
+    justify-content: center;
+    margin: 40px auto; 
+}
+
+/* Centrado del formulario */
+.form-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 750px !important; 
+}

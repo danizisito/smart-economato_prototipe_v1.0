@@ -1,3 +1,4 @@
+/* Filtra productos por ID de categoría.*/
 export function filtrarPorCategoria(productos, categoriaId) {
   if (!categoriaId) {
     return productos; // Devuelve todos si el ID es nulo o 0
@@ -7,22 +8,23 @@ export function filtrarPorCategoria(productos, categoriaId) {
   return productos.filter(p => {
     let productoCategoriaId;
 
-    // Intentamos obtener el ID del objeto anidado (p.categoria.id)
-    // Usamos la comprobación de existencia para evitar errores si 'categoria' no existe
+    // obtener el ID del objeto anidado (p.categoria.id)
     if (p.categoria && p.categoria.id) {
       productoCategoriaId = p.categoria.id;
     }
 
-    // Usamos el operador de igualdad flexible (==) para que funcione con cualquier tipo de dato (string/number)
     return productoCategoriaId == categoriaId;
   });
 }
 
+/* Filtra productos por nombre.*/
 export function buscarProducto(productos, nombre) {
   return productos.filter((p) =>
     p.nombre.toLowerCase().includes(nombre.toLowerCase())
   );
 }
+
+/* Ordena productos por precio.*/
 
 export function ordenarPorPrecio(productos, orden) {
   const lista = [...productos];
@@ -30,6 +32,7 @@ export function ordenarPorPrecio(productos, orden) {
   else if (orden === "desc") return lista.sort((a, b) => b.precio - a.precio);
 }
 
+/* Filtra productos con stock bajo. */
 export function comprobarStockMinimo(productos) {
   return productos.filter((p) => p.stock < p.stockMinimo);
 }

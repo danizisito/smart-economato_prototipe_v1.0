@@ -1,25 +1,39 @@
 import { comprobarLogin } from "../utils/authGuard.js";
 import { inicializar } from "../controllers/almacenController.js";
+import { inicializarRecepcion } from "../controllers/recepcionController.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // ==========================================
-    //  🔐 PROTEGER TODA LA APLICACIÓN
-    // ==========================================
     comprobarLogin();
 
     const links = document.querySelectorAll(".navBar a");
     const contenido = document.querySelector(".contenido");
+    
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
+    const body = document.body;
+    
+    if (menuToggle && mainNav) {
+        menuToggle.addEventListener("click", () => {
+            // Alternar el estado del menú
+            mainNav.classList.toggle("is-open");
+            body.classList.toggle("menu-open");
+        });
+    }
 
-    // ==========================================
-    //  📄 CAMBIO DE PÁGINAS
-    // ==========================================
+    //  CAMBIO DE PÁGINAS
     links.forEach(link => {
         link.addEventListener("click", async (e) => {
             e.preventDefault();
 
             const page = e.target.dataset.page;
             if (!page) return;
+
+            // CERRAR MENÚ AL HACER CLIC EN UN ENLACE
+            if (mainNav && mainNav.classList.contains("is-open")) {
+                mainNav.classList.remove("is-open");
+                body.classList.remove("menu-open"); // Desbloquear scroll
+            }
 
             try {
                 // Detectar automáticamente dónde está index.html
@@ -41,6 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Si es Inventario, iniciar controlador
                 if (page === "economato") {
                     inicializar();
+                } 
+                // Si es Recepcion, iniciar el controlador de recepción
+                if (page === "Recepcion") { 
+                    inicializarRecepcion();
                 }
 
             } catch (error) {
@@ -49,9 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // ==========================================
-    //  🚪 LOGOUT
-    // ==========================================
+    // LOGOUT
     const logoutBtn = document.getElementById("logout");
 
     if (logoutBtn) {

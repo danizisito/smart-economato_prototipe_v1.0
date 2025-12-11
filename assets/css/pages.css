@@ -1,0 +1,233 @@
+/* PAGES — ESTILOS ESPECÍFICOS */
+
+/* FORMULARIO AÑADIR PRODUCTO */
+.form-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 650px; 
+    background: white;
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+
+    display: grid;
+    gap: 20px; 
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.form-container h2 {
+    grid-column: span 3;
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; 
+    align-items: flex-start !important; 
+    margin-bottom: 12px; 
+}
+
+/* Estilo de la etiqueta del formulario */
+.form-group label {
+    font-size: 14px;
+    font-weight: 600; 
+    color: var(--text-color);
+    margin-bottom: 2px;
+}
+
+/* Ancho 100% para inputs y selectores */
+.form-group input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]),
+.form-group select {
+    width: 100% !important; 
+    max-width: none !important; 
+}
+
+.form-group input[type="date"] {
+    width: 100% !important; 
+    max-width: none !important;
+}
+
+/* Textareas (Alérgenos, Descripción) */
+.full-width textarea {
+    width: 100% !important;
+    max-width: none !important;
+    height: 90px; 
+    resize: vertical; 
+}
+
+.full-width {
+    grid-column: span 3;
+}
+
+.form-actions {
+    grid-column: span 3;
+    display: flex;
+    justify-content: center;
+    gap: 15px; 
+    margin-top: 15px; 
+}
+
+/* Botón Añadir */
+.form-actions .btn {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+    padding: 12px 28px;
+}
+
+/* Botón Volver */
+.form-actions #btnVolver {
+    background: var(--light-gray);
+    color: var(--text-color);
+    box-shadow: none;
+    border: 1px solid var(--border-color); 
+}
+.form-actions #btnVolver:hover {
+    background: #e9ecef;
+    transform: translateY(-1px);
+}
+
+
+/* ESTILOS DE CONTROLES (Tabla principal) */
+.controles input,
+.controles button {
+    height: 42px;
+    padding: 0 16px;
+}
+
+.controles {
+    margin-top: 5px !important;
+    margin-bottom: 20px !important;
+}
+
+/* LAYOUT DEL FORMULARIO */
+#formAnadirProducto {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#formAnadirProducto h2,
+#formAnadirProducto .form-actions,
+#formAnadirProducto .full-width {
+    grid-column: span 3;
+}
+
+/* RECEPCIÓN RÁPIDA DE STOCK */
+
+.controles-rapidos {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 20px 0 30px 0;
+}
+
+#scanInput {
+    flex-grow: 1; 
+    padding: 12px 12px 12px 40px; 
+    font-size: 1.1rem;
+    border-radius: var(--radius);
+    /* Icono de escáner */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23555555' d='M3 7V5h5V3H3c-1.1 0-2 .9-2 2v5h2V7zm-2 7v5c0 1.1.9 2 2 2h5v-2H3v-5zm18-7V5c0-1.1-.9-2-2-2h-5v2h5v5zm-5 11h5c1.1 0 2-.9 2-2v-5h-2v5zm-2-7h-8v-2h8z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 12px center;
+}
+
+#cantidadInput {
+    width: 100px; 
+    text-align: center;
+    font-weight: 600;
+    padding: 12px;
+}
+
+#addStockBtn {
+    padding: 12px 28px;
+    white-space: nowrap; 
+}
+
+
+
+/* RESPONSIVE */
+
+/* TABLET (MAX 1024PX) */
+@media (max-width: 1024px) {
+    
+    /* Formulario Añadir Producto (3 -> 2 columnas) */
+    .form-container, #formAnadirProducto {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 90%; 
+        margin: 20px auto;
+    }
+
+    .form-container h2,
+    .form-actions,
+    .full-width,
+    #formAnadirProducto h2,
+    #formAnadirProducto .form-actions,
+    #formAnadirProducto .full-width {
+        grid-column: span 2;
+    }
+    
+    .form-group input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]),
+    .form-group select,
+    .form-group input[type="date"] {
+        max-width: none !important; 
+        width: 100% !important;
+    }
+    
+    /* Controles Rápidos (Recepción) */
+    .controles-rapidos {
+        flex-direction: row; 
+        flex-wrap: wrap; 
+    }
+    #cantidadInput {
+        width: 100px;
+    }
+    #addStockBtn {
+        flex-grow: 1; 
+    }
+    
+    /* Controles de la tabla (Búsqueda/Añadir) */
+    .controles {
+        justify-content: space-between;
+        gap: 10px;
+        padding: 0 10px;
+    }
+}
+
+/* MÓVIL (MAX 768PX) */
+@media (max-width: 768px) {
+    /* Formulario pasa a 1 columna */
+    .form-container, #formAnadirProducto {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .form-container h2,
+    .form-actions,
+    .full-width,
+    #formAnadirProducto h2,
+    #formAnadirProducto .form-actions,
+    #formAnadirProducto .full-width {
+        grid-column: span 1;
+    }
+    
+    /* Controles Rápidos (Recepción) pasan a vertical */
+    .controles-rapidos {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    #cantidadInput {
+        width: 100%; 
+        align-self: auto;
+    }
+}

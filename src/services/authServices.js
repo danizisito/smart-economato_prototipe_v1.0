@@ -4,23 +4,23 @@ export const AuthService = {
 
     async login(username, password) {
         try {
-            // 1️⃣ Buscar usuario por nombre
+            // Buscar usuario por nombre
             const response = await fetch(`${API_URL}/usuarios?username=${username}`);
             const data = await response.json();
 
-            // Si no existe → usuario incorrecto
+            // Si no existe, devuelve error
             if (data.length === 0) {
                 return { error: "usuarioIncorrecto" };
             }
 
             const user = data[0];
 
-            // 2️⃣ Contraseña incorrecta
+            // Contraseña incorrecta
             if (user.password !== password) {
                 return { error: "passwordIncorrecta" };
             }
 
-            // 3️⃣ Login correcto
+            // Login correcto
             return user;
 
         } catch (error) {

@@ -4,27 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GridTemplate</title>
+    <title>Smart Economato</title>
 
-    <link rel="stylesheet" href="../assets/css/estilos.css">
-    <link rel="stylesheet" href="../assets/css/estilo.css">
-    <link rel="stylesheet" href="../assets/css/anadirProductos.css">
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/pages.css">
 
-    <!-- GRID.JS (CSS) -->
     <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
-
-    <!-- 💥 TU CSS PERSONALIZADO PARA GRID.JS -->
-    <link rel="stylesheet" href="../assets/css/grid-custom.css">
 </head>
 
 <body>
     <div class="container">
+
         <header>
             <img src="../assets/img/logo/LOGO CIFP VIRGEN DE CANDELARIA.png" alt="Logo" class="logo">
             <h1 class="tituloPrin">Gestión Economato</h1>
+
+            <button id="menuToggle" aria-label="Abrir menú de navegación">
+                ☰
+            </button>
         </header>
 
-        <nav class="navBar">
+        <nav class="navBar" id="mainNav">
             <a href="" data-page="Recepcion">Recepción</a>
             <a href="" data-page="DistribucionInterna">Distribución Interna</a>
             <a href="" data-page="Bajas">Bajas</a>
@@ -34,16 +37,13 @@
             <a href="" data-page="Usuario">Usuario</a>
         </nav>
 
-        <div class="contenido">
-            <h1 class="contenidoTit">CONTENIDO</h1>
-        </div>
+        <div class="contenido" id="contenido"></div>
 
-        <footer>Pie de Página</footer>
+        <footer>Pie de página</footer>
+
     </div>
 
-    <!-- GRID.JS (JS) -->
     <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
-
     <script type="module" src="../src/rout/main.js"></script>
 </body>
 

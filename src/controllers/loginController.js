@@ -25,9 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const result = await AuthService.login(username, password);
 
-        // ================================
-        //        ERRORES ESPECÍFICOS
-        // ================================
+
+        // ERRORES ESPECÍFICOS
+
         if (result.error === "usuarioIncorrecto") {
             message.textContent = "Usuario incorrecto.";
             message.style.color = "red";
@@ -55,9 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // ================================
-        //           LOGIN CORRECTO
-        // ================================
+
+        // LOGIN CORRECTO
+
         sessionStorage.setItem("usuario", JSON.stringify(result));
         message.textContent = "Inicio de sesión correcto.";
         message.style.color = "green";
