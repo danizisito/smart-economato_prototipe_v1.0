@@ -1,25 +1,27 @@
 /* VARIABLES GLOBALES */
 :root {
-    /* Colores */
-    --primary-color: #e84735;
-    --secondary-color: #555555;
-    --bg-color: #f4f6f9;
-    --text-color: #222;
+  /* CORRECCIÓN FASE 2: Color oscurecido para cumplir contraste (Ratio > 4.5:1) */
+  --primary-color: #c03020; /* Antes era #e84735 (muy claro) */
 
-    /* Colores funcionales */
-    --light-gray: #e2e8f0;       
-    --focus-ring: rgba(232, 71, 53, 0.4); 
-    --hover-bg: #f0f7ff;         
-    
-    /* COLORES DE ESTADO */
-    --success-color: #28a745;
-    --error-color: #dc3545;
+  --secondary-color: #555555;
+  --bg-color: #f4f6f9;
+  --text-color: #222;
 
-    /* Diseño */
-    --radius: 10px; 
-    --transition: 0.3s ease;
+  /* Colores funcionales */
+  --light-gray: #cbd5e1;
+  --focus-ring: rgba(192, 48, 32, 0.4);
+  --hover-bg: #f0f7ff;
 
-    /* Sombras */
-    --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
-    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.05);
+  /* COLORES DE ESTADO */
+  /* CORRECCIÓN FASE 2: Verde más oscuro para texto/iconos */
+  --success-color: #1e7e34;
+  --error-color: #d32f2f;
+
+  /* Diseño */
+  --radius: 10px;
+  --transition: 0.3s ease;
+
+  /* Sombras */
+  --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.05);
 }

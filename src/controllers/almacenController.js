@@ -1,13 +1,13 @@
-import { 
-    getProducto, 
-    getCategoria, 
-    getProveedor, 
-    addProducto 
+import {
+    getProducto,
+    getCategoria,
+    getProveedor,
+    addProducto
 } from "../services/economatoService.js";
 
-import { 
-    renderizarTabla, 
-    renderizarSelectoresFormulario 
+import {
+    renderizarTabla,
+    renderizarSelectoresFormulario
 } from "../views/economato-ui.js";
 
 let productos = [];
@@ -21,28 +21,30 @@ function volverAVistaTabla() {
     const formWrapper = document.querySelector("#formWrapper");
     const tabla = document.querySelector("#tablaProductos");
     const controles = document.querySelector(".controles");
-    const tituloPrincipal = document.querySelector(".eco-title"); 
-    const resumen = document.querySelector("#resumen"); 
-    const menuToggle = document.getElementById("menuToggle"); 
-    
+    const tituloPrincipal = document.querySelector(".eco-title");
+    const resumen = document.querySelector("#resumen");
+    const menuToggle = document.getElementById("menuToggle");
+
     wrapper.classList.remove("form-anadir");
     formWrapper.innerHTML = "";
-    
+
     // MOSTRAR ELEMENTOS DE LA VISTA DE TABLA
     tituloPrincipal.style.display = "";
     resumen.style.display = "";
     tabla.style.display = "";
     controles.style.display = "";
-    // Asegurar que el toggle esté visible al volver si la pantalla es pequeña
-    if (menuToggle) menuToggle.style.display = ""; 
+
+    if (menuToggle) menuToggle.style.display = "";
+
+    // CORRECCIÓN FASE 3: Devolver el foco al botón de añadir (o a la tabla)
+    const btnAnadir = document.querySelector("#btnAnadirProducto");
+    if (btnAnadir) btnAnadir.focus();
 }
 
 
-// FUNCIÓN PARA DISPARAR LA RECARGA DE LA PÁGINA
-
 function dispararRecargaInventario() {
     const inventarioLink = document.querySelector('.navBar a[data-page="economato"]');
-    
+
     if (inventarioLink) {
         inventarioLink.click();
     } else {
@@ -55,15 +57,15 @@ function dispararRecargaInventario() {
 export async function inicializar() {
 
     const btnBuscar = document.querySelector("#btnBuscar");
-    const inputBuscar = document.querySelector("#busqueda"); 
+    const inputBuscar = document.querySelector("#busqueda");
 
     const btnAnadir = document.querySelector("#btnAnadirProducto");
     const formWrapper = document.querySelector("#formWrapper");
     const wrapper = document.querySelector(".economato-wrapper");
 
-    const tituloPrincipal = document.querySelector(".eco-title"); 
-    const resumen = document.querySelector("#resumen"); 
-    const menuToggle = document.getElementById("menuToggle"); // Referencia al toggle
+    const tituloPrincipal = document.querySelector(".eco-title");
+    const resumen = document.querySelector("#resumen");
+    const menuToggle = document.getElementById("menuToggle");
 
     // Cargar datos iniciales
     productos = await getProducto();
@@ -73,12 +75,11 @@ export async function inicializar() {
     proveedoresData = await getProveedor();
 
     renderizarTabla(productosMostrados);
-    
-    // Toggle visible al cargar el Inventario
+
     if (menuToggle) {
-        menuToggle.style.display = ""; 
+        menuToggle.style.display = "";
     }
-    
+
     /* BUSCADOR EN TIEMPO REAL */
     inputBuscar?.addEventListener("input", () => {
         buscar(inputBuscar.value);
@@ -106,7 +107,6 @@ export async function inicializar() {
         const tabla = document.querySelector("#tablaProductos");
         const controles = document.querySelector(".controles");
 
-        // OCULTAR ELEMENTOS DE LA VISTA DE TABLA
         tituloPrincipal.style.display = "none";
         resumen.style.display = "none";
         tabla.style.display = "none";
@@ -121,10 +121,17 @@ export async function inicializar() {
 
         renderizarSelectoresFormulario(categoriasMostradas, proveedoresData);
 
+        // CORRECCIÓN FASE 3: Gestión del foco
+        // Mover el foco al nuevo título h2 para anunciar cambio de contexto
+        const nuevoTitulo = formWrapper.querySelector("h2");
+        if (nuevoTitulo) {
+            nuevoTitulo.setAttribute("tabindex", "-1");
+            nuevoTitulo.focus();
+        }
+
         const form = document.querySelector("#formAnadirProducto");
         form.addEventListener("submit", handleFormSubmit);
 
-        // Usamos la función para el botón Volver
         document.querySelector("#btnVolver").addEventListener("click", volverAVistaTabla);
     });
 }
@@ -134,8 +141,6 @@ async function handleFormSubmit(e) {
     e.preventDefault();
 
     const data = new FormData(e.target);
-
-    // Encuentra el ID más alto y suma 1
     const nuevoId = Math.max(...productos.map(p => parseInt(p.id))) + 1;
 
     const categoriaSeleccionada =
@@ -178,6 +183,5 @@ async function handleFormSubmit(e) {
         return;
     }
 
-    // Disparar la recarga forzada de la vista Inventario
     dispararRecargaInventario();
 }

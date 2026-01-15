@@ -1,17 +1,21 @@
 <div class="economato-wrapper">
 
-    <h1 class="eco-title">Recepción Rápida de Stock</h1>
+  <h2 class="eco-title">Recepción Rápida de Stock</h2>
 
-    <div class="controles-rapidos">
-      <input type="text" class="search-box" id="scanInput" placeholder="Escanear Código de Barras..." autofocus>
-      <input type="number" id="cantidadInput" value="1" min="1" placeholder="Cantidad">
-      <button id="addStockBtn">Añadir Stock</button>
-    </div>
+  <div class="controles-rapidos">
+    <label for="scanInput" class="sr-only">Escanear código de barras</label>
+    <input type="text" class="search-box" id="scanInput" placeholder="Escanear Código de Barras..." autofocus>
 
-    <p id="recepcionMessage" class="message"></p>
+    <label for="cantidadInput" class="sr-only">Cantidad</label>
+    <input type="number" id="cantidadInput" value="1" min="1" placeholder="Cantidad">
 
-    <div id="resumenRecepcion">
-        <p style="text-align:center;">Escanea un producto para comenzar la recepción.</p>
-    </div>
+    <button id="addStockBtn">Añadir Stock</button>
+  </div>
+
+  <p id="recepcionMessage" class="message" role="alert"></p>
+
+  <div id="resumenRecepcion">
+    <p style="text-align:center;">Escanea un producto para comenzar la recepción.</p>
+  </div>
 
 </div>
