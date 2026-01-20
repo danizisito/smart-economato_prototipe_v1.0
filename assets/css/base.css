@@ -15,9 +15,9 @@ body {
   max-width: 100%;
   overflow-x: hidden;
   background: var(--bg-color);
+  font-size: 1rem;
+  line-height: 1.6;
   color: var(--text-color);
-  /* FASE 2: Base para REM */
-  font-size: 16px;
 }
 
 /* Links */
@@ -32,7 +32,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Botones - FASE 2: Unidades relativas (rem) */
 .btn,
 button,
 input[type="submit"] {
@@ -51,7 +50,7 @@ input[type="submit"] {
 .btn:hover,
 button:hover,
 input[type="submit"]:hover {
-  background: #a32415; /* Oscurecido manualmente para hover */
+  background: var(--primary-hover); /* Usamos la variable oscura nueva */
   transform: translateY(-1px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
@@ -68,7 +67,15 @@ textarea {
   font-size: 1rem;
 }
 
-/* FASE 3: Foco visible */
+/* FASE 3: Foco Visible por Teclado */
+/* Esto garantiza que quien navega con Tab sepa dónde está */
+:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+  border-color: transparent;
+}
+
+/* Fallback para ratón (estilo suave) */
 input:focus,
 select:focus,
 textarea:focus {
