@@ -68,7 +68,7 @@ textarea {
 }
 
 /* FASE 3: Foco Visible por Teclado */
-/* Esto garantiza que quien navega con Tab sepa dónde está */
+
 :focus-visible {
   outline: 3px solid var(--primary-color);
   outline-offset: 2px;
