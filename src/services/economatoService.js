@@ -45,7 +45,7 @@ export async function getProveedor() {
 
 /**
  * Añade un nuevo producto a la base de datos (POST).
- * @param {Object} producto - Datos del nuevo producto.
+ * @param producto - Datos del nuevo producto.
  */
 export async function addProducto(producto) {
   try {
@@ -77,7 +77,7 @@ export async function addProducto(producto) {
 export async function updateStock(id, nuevoStock) {
   try {
     const response = await fetch(`${API_URL}/productos/${id}`, {
-      method: 'PATCH', 
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },

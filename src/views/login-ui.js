@@ -5,7 +5,6 @@ export const LoginUI = {
         msgElement.textContent = message;
         msgElement.className = `${type}`;
 
-        // CORRECCIÓN FASE 4: Accesibilidad
         // Si el mensaje es un error, añadir role="alert"
         if (type.includes("red") || type.includes("error")) {
             msgElement.setAttribute("role", "alert");

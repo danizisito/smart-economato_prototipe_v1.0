@@ -59,7 +59,7 @@ export function renderizarTabla(datos) {
         sort: true,
         pagination: {
             limit: 10,
-            summary: false // Ocultamos el resumen default para evitar duplicidad si quieres
+            summary: false
         },
         language: {
             'pagination': {
@@ -71,8 +71,6 @@ export function renderizarTabla(datos) {
 
     resumen.textContent = `Productos mostrados: ${datos.length}`;
 
-    // --- PARCHE DE ACCESIBILIDAD PARA WAVE (0 ALERTAS) ---
-    // Esto vigila si GridJS añade botones con 'title' redundante y los elimina al instante.
 
     const removeRedundantTitles = () => {
         const buttons = tableContainer.querySelectorAll('.gridjs-pages button');
@@ -83,19 +81,6 @@ export function renderizarTabla(datos) {
         });
     };
 
-    // Crear un observador que vigila cambios en el HTML de la tabla
-    observer = new MutationObserver((mutations) => {
-        removeRedundantTitles();
-    });
-
-    // Empezar a observar el contenedor de la tabla
-    observer.observe(tableContainer, {
-        childList: true,
-        subtree: true
-    });
-
-    // Ejecutar una vez al inicio por si acaso
-    setTimeout(removeRedundantTitles, 500);
 }
 
 /** Rellena los selectores de Categoría y Proveedor en el formulario.*/
@@ -103,7 +88,7 @@ export function renderizarSelectoresFormulario(categorias, proveedores) {
     const cat = document.querySelector("#categoriaId");
     const prov = document.querySelector("#proveedorId");
 
-    if (!cat || !prov) return; // Seguridad por si no existen en el DOM
+    if (!cat || !prov) return;
 
     cat.innerHTML = "<option value=''>Seleccione categoría</option>";
     categorias.forEach(c => {
