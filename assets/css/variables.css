@@ -1,7 +1,6 @@
 /* VARIABLES GLOBALES */
 :root {
-  /* CORRECCIÓN FASE 2: Color oscurecido para cumplir contraste (Ratio > 4.5:1) */
-  --primary-color: #c03020; /* Antes era #e84735 (muy claro) */
+  --primary-color: #c03020;
 
   --secondary-color: #555555;
   --bg-color: #f4f6f9;
@@ -13,7 +12,6 @@
   --hover-bg: #f0f7ff;
 
   /* COLORES DE ESTADO */
-  /* CORRECCIÓN FASE 2: Verde más oscuro para texto/iconos */
   --success-color: #1e7e34;
   --error-color: #d32f2f;
 
