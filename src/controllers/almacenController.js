@@ -15,7 +15,7 @@ let productosMostrados = [];
 let categoriasMostradas = [];
 let proveedoresData = [];
 
-// FUNCIÓN COMÚN PARA VOLVER A LA VISTA DE TABLA
+// FUNCIÓN PARA VOLVER A LA VISTA DE TABLA
 function volverAVistaTabla() {
     const wrapper = document.querySelector(".economato-wrapper");
     const formWrapper = document.querySelector("#formWrapper");
@@ -36,7 +36,6 @@ function volverAVistaTabla() {
 
     if (menuToggle) menuToggle.style.display = "";
 
-    // CORRECCIÓN FASE 3: Devolver el foco al botón de añadir (o a la tabla)
     const btnAnadir = document.querySelector("#btnAnadirProducto");
     if (btnAnadir) btnAnadir.focus();
 }
@@ -121,7 +120,6 @@ export async function inicializar() {
 
         renderizarSelectoresFormulario(categoriasMostradas, proveedoresData);
 
-        // CORRECCIÓN FASE 3: Gestión del foco
         // Mover el foco al nuevo título h2 para anunciar cambio de contexto
         const nuevoTitulo = formWrapper.querySelector("h2");
         if (nuevoTitulo) {
