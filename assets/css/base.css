@@ -50,7 +50,7 @@ input[type="submit"] {
 .btn:hover,
 button:hover,
 input[type="submit"]:hover {
-  background: var(--primary-hover); /* Usamos la variable oscura nueva */
+  background: var(--primary-hover);
   transform: translateY(-1px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
@@ -67,15 +67,13 @@ textarea {
   font-size: 1rem;
 }
 
-/* FASE 3: Foco Visible por Teclado */
-
 :focus-visible {
   outline: 3px solid var(--primary-color);
   outline-offset: 2px;
   border-color: transparent;
 }
 
-/* Fallback para ratón (estilo suave) */
+/* Fallback para ratón */
 input:focus,
 select:focus,
 textarea:focus {
@@ -123,7 +121,7 @@ tr.alerta td {
   font-weight: 600;
 }
 
-/* UTILIDAD ACCESIBILIDAD: Ocultar visualmente pero disponible para lector */
+/*Ocultar visualmente pero disponible para lector */
 .sr-only {
   position: absolute;
   width: 1px;
